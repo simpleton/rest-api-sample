@@ -3,7 +3,6 @@ package routers
 import (
     "github.com/labstack/echo"
     "net/http"
-    "time"
 ***REMOVED***
 
 type APIRouter struct {
