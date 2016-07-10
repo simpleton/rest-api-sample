@@ -14,3 +14,6 @@ install:
 
 test:
 	$(info ************ NO TEST CURRENTLY ***************REMOVED***
+
+run: tinker-api
+	./bin/tinker-api
