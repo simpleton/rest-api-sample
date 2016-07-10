@@ -1,0 +1,18 @@
+package: main
+import:
+  - package: github.com/labstack/echo
+    subpackages:
+      - /...
+  - package: github.com/labstack/gommon
+    subpackages:
+      - /log
+  - package: github.com/mattn/go-colorable
+  - package: github.com/mattn/go-isatty
+  - package: github.com/valyala/fasttemplate
+  - package: github.com/facebookgo/grace
+    subpackages:
+      - /...
+  - package: github.com/dgrijalva/jwt-go
+  - package: github.com/facebookgo/httpdown
+  - package: github.com/facebookgo/clock
+  - package: github.com/facebookgo/stats
