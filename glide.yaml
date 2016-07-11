@@ -21,3 +21,7 @@ import:
   - package: github.com/klauspost/cpuid
   - package: github.com/klauspost/crc32
   - package: github.com/valyala/bytebufferpool
+  - package: gopkg.in/mgutz/dat.v1
+    subpackages:
+      - /sqlx-runner
+  - package: github.com/mattes/migrate
