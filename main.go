@@ -17,7 +17,7 @@ func main(***REMOVED*** {
     api := routers.NewAPIRouter(server***REMOVED***
     api.Init(***REMOVED***
 
-    std := standard.New(":1323"***REMOVED***
+    std := standard.New(":8300"***REMOVED***
     std.SetHandler(server***REMOVED***
     gracehttp.Serve(std.Server***REMOVED***
 }
