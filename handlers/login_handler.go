@@ -24,7 +24,7 @@ func(this *LoginHandler***REMOVED*** PwdLogin(c echo.Context***REMOVED*** error 
 		// Set claims
 		claims := token.Claims.(jwt.MapClaims***REMOVED***
 		claims["name"] = "sim"
-		claims["exp"] = time.Now(***REMOVED***.Add(time.Second * 60***REMOVED***.Unix(***REMOVED***
+		claims["exp"] = time.Now(***REMOVED***.Add(time.Hour * 24 * 7***REMOVED***.Unix(***REMOVED***
 
 		// Generate encoded token and send it as response.
 		t, err := token.SignedString([]byte(conf.JwtSecret***REMOVED******REMOVED***
