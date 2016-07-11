@@ -10,5 +10,5 @@ type LoginHandler struct {
 }
 
 func(this *LoginHandler***REMOVED*** Get(c echo.Context***REMOVED*** error {
-	return c.String(http.StatusOK, "Hello, World! Grace!"***REMOVED***
+	return c.String(http.StatusOK, "Hello, World! Login!"***REMOVED***
 }

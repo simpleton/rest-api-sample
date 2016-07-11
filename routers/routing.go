@@ -18,5 +18,8 @@ func NewAPIRouter(apiServer *echo.Echo***REMOVED*** *APIRouter {
 
 func (self *APIRouter***REMOVED*** Init(***REMOVED*** {
 	loginHandler := handlers.LoginHandler{}
-	self.server.GET("/", loginHandler.Get***REMOVED***
+	self.server.GET("/login", loginHandler.Get***REMOVED***
+
+	registerHandler := handlers.RegisterHandler{}
+	self.server.GET("/register", registerHandler.Get***REMOVED***
 }
