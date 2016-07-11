@@ -16,3 +16,8 @@ import:
   - package: github.com/facebookgo/httpdown
   - package: github.com/facebookgo/clock
   - package: github.com/facebookgo/stats
+  - package: github.com/valyala/fasthttp
+  - package: github.com/klauspost/compress
+  - package: github.com/klauspost/cpuid
+  - package: github.com/klauspost/crc32
+  - package: github.com/valyala/bytebufferpool
