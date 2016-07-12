@@ -9,7 +9,7 @@ tinker-api:
 clean:
 	@rm -rf bin
 
-install:
+prepare:
 	glide install
 
 test:
