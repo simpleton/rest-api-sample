@@ -6,6 +6,7 @@ import (
 	"github.com/labstack/echo/engine/standard"
 	"github.com/labstack/echo/middleware"
 	"github.com/simpleton/tinker-api/routers"
+	"github.com/simpleton/tinker-api/models"
 ***REMOVED***
 
 func main(***REMOVED*** {
@@ -17,6 +18,10 @@ func main(***REMOVED*** {
 	//Run the API
 	api := routers.NewAPIRouter(server***REMOVED***
 	api.Init(***REMOVED***
+
+	if err := models.InitDB(***REMOVED***; err != nil {
+		panic(err***REMOVED***
+	}
 
 	std := standard.New(":8300"***REMOVED***
 	std.SetHandler(server***REMOVED***

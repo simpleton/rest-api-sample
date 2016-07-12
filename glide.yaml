@@ -25,3 +25,11 @@ import:
     subpackages:
       - /sqlx-runner
   - package: github.com/mattes/migrate
+  - package: github.com/mgutz/logxi
+    subpackages:
+      - /v1
+  - package: github.com/cenkalti/backoff
+  - package: github.com/jmoiron/sqlx
+  - package: github.com/mgutz/ansi
+  - package: github.com/mgutz/str
+  - package: github.com/pmylund/go-cache
