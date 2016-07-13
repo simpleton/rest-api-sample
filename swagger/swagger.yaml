@@ -1,29 +1,70 @@
-# Example YAML to get you started quickly.
-# Be aware that YAML has indentation based scoping.
-# Code completion support is available so start typing for available options.
+---
 swagger: '2.0'
 
-# This is your document metadata
+################################################################################
+#                              API Information                                 #
+################################################################################
 info:
   title: Tinker-api
   version: "0.0.1"
 
+################################################################################
+#                  Host, Base Path, Schemes and Content Types                  #
+################################################################################
 host: api.tinkerpatch.com
+
 schemes:
   - https
 produces:
   - application/json
 
+
+
+################################################################################
+#                                   Tags                                       #
+################################################################################
+tags:
+  - name: Users
+  - name: Relationships
+    description: |
+      Relationships are expressed using the following terms:
+
+      **outgoing_status**: Your relationship to the user. Can be "follows",
+        "requested", "none".
+      **incoming_status**: A user's relationship to you. Can be "followed_by",
+        "requested_by", "blocked_by_you", "none".
+
+################################################################################
+#                                   Parameters                                 #
+################################################################################
+parameters:
+  user-id:
+    name: user-id
+    in: path
+    description: The user identi***REMOVED***er number
+    type: number
+    required: true
+  tag-name:
+    name: tag-name
+    in: path
+    description: Tag name
+    type: string
+    required: true
+
+################################################################################
+#                                           Paths                              #
+################################################################################
 paths:
   /register:
     post:
       description: |
         "register a account with password"
+      tags:
+        - Users
       parameters:
-        - name: user
-          in: body
-          description: login user info
-          required: true
+        - in: body
+          name: body
+          description: login with password
           schema:
             $ref: '#/de***REMOVED***nitions/loginUser'
       responses:
@@ -45,7 +86,5 @@ de***REMOVED***nitions:
     properties:
       username:
         type: string
-        require: true
       password:
         type: string
-        require: true
