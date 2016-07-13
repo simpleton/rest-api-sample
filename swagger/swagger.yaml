@@ -1,49 +1,90 @@
-# Example YAML to get you started quickly.
-# Be aware that YAML has indentation based scoping.
-# Code completion support is available so start typing for available options.
+---
 swagger: '2.0'
 
-# This is your document metadata
+################################################################################
+#                              API Information                                 #
+################################################################################
 info:
+  title: Tinker-api
   version: "0.0.1"
-  title: <tinker-api>
 
-# Describe your paths here
+################################################################################
+#                  Host, Base Path, Schemes and Content Types                  #
+################################################################################
+host: api.tinkerpatch.com
+
+schemes:
+  - https
+produces:
+  - application/json
+
+
+
+################################################################################
+#                                   Tags                                       #
+################################################################################
+tags:
+  - name: Users
+  - name: Relationships
+    description: |
+      Relationships are expressed using the following terms:
+
+      **outgoing_status**: Your relationship to the user. Can be "follows",
+        "requested", "none".
+      **incoming_status**: A user's relationship to you. Can be "followed_by",
+        "requested_by", "blocked_by_you", "none".
+
+################################################################################
+#                                   Parameters                                 #
+################################################################################
+parameters:
+  user-id:
+    name: user-id
+    in: path
+    description: The user identi***REMOVED***er number
+    type: number
+    required: true
+  tag-name:
+    name: tag-name
+    in: path
+    description: Tag name
+    type: string
+    required: true
+
+################################################################################
+#                                           Paths                              #
+################################################################################
 paths:
-  # This is a path endpoint. Change it.
   /register:
-    # This is a HTTP operation
     post:
-      # Describe this verb here. Note: you can use markdown
       description: |
-        Gets `Person` objects.
-        Optional query param of **size** determines
-        size of returned array
-      # This is array of GET operation parameters:
+        "register a account with password"
+      tags:
+        - Users
       parameters:
-        # An example parameter that is in query and is required
-        -
-          name: size
-          in: query
-          description: Size of array
-          required: true
-          type: number
-          format: double
-      # Expected responses for this operation:
-      responses:
-        # Response code
-        200:
-          description: Successful response
-          # A schema describing your response object.
-          # Use JSON Schema format
+        - in: body
+          name: body
+          description: login with password
           schema:
-            title: ArrayOfPersons
-            type: array
-            items:
-              title: Person
-              type: object
-              properties:
-                name:
-                  type: string
-                single:
-                  type: boolean
+            $ref: '#/de***REMOVED***nitions/loginUser'
+      responses:
+        200:
+          description: return the access_token
+          schema:
+            type: object
+            properties:
+              token:
+                type: string
+
+
+################################################################################
+#                                 De***REMOVED***nitions                                  #
+################################################################################
+de***REMOVED***nitions:
+  loginUser:
+    type: object
+    properties:
+      username:
+        type: string
+      password:
+        type: string

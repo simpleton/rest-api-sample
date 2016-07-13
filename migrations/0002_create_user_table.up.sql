@@ -1,9 +1,9 @@
 CREATE TABLE IF NOT EXISTS t_user (
     f_id SERIAL,
-    f_user_name VARCHAR(200***REMOVED***,
-    f_user_avatar VARCHAR(200***REMOVED*** DEFAULT '',
-    f_mobile VARCHAR(20***REMOVED***,
-    f_auth_token VARCHAR(100***REMOVED***,
+    f_user_name VARCHAR(256***REMOVED***,
+    f_user_avatar VARCHAR(256***REMOVED*** DEFAULT '',
+    f_mobile VARCHAR(32***REMOVED***,
+    f_password VARCHAR(256***REMOVED***,
     f_lock_state INT DEFAULT '0',
     f_created_timestamp TIMESTAMP with time zone DEFAULT 'now'::timestamp,
     f_updated_timestamp TIMESTAMP with time zone DEFAULT 'now'::timestamp,
