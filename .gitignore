@@ -29,3 +29,5 @@ package.json
 node_modules
 .localsecret
 secret.py
+deploy.lock
+*.pyc
