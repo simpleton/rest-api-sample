@@ -1,4 +1,4 @@
-package: main
+package: .
 import:
   - package: github.com/labstack/echo
     subpackages:
@@ -36,5 +36,3 @@ import:
   - package: github.com/garyburd/redigo
     subpackages:
       - /redis
-  - package: golang.org/x/net
-  - package: github.com/lib/pq

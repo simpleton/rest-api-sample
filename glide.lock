@@ -1,0 +1,98 @@
+hash: fa364b29ebdc73751460f9f550c1fdc9d3fe23b7a495ea73c53dd1f3cf17d545
+updated: 2016-07-17T05:14:39.188718368+08:00
+imports:
+- name: github.com/cenkalti/backoff
+  version: cdf48bbc1eb78d1349cbda326a4a037f7ba565c6
+- name: github.com/dgrijalva/jwt-go
+  version: 01aeca54ebda6e0fbfafd0a524d234159c05ec20
+- name: github.com/facebookgo/clock
+  version: 600d898af40aa09a7a93ecb9265d87b0504b6f03
+- name: github.com/facebookgo/grace
+  version: 053ab5d25436faedf3fe76fbf3da797c8c27c659
+  subpackages:
+  - '...'
+  - gracehttp
+  - gracenet
+- name: github.com/facebookgo/httpdown
+  version: a3b1354551a26449fbe05f5d855937f6e7acbd71
+- name: github.com/facebookgo/stats
+  version: 1b76add642e42c6ffba7211ad7b3939ce654526e
+- name: github.com/garyburd/redigo
+  version: b8dc90050f24c1a73a52f107f3f575be67b21b7c
+  subpackages:
+  - redis
+  - internal
+- name: github.com/jmoiron/sqlx
+  version: bdae0c3219c3bdb92f3d7c70825018712787c933
+  subpackages:
+  - reflectx
+- name: github.com/klauspost/compress
+  version: 14eb9c4951195779ecfbec34431a976de7335b0a
+- name: github.com/klauspost/cpuid
+  version: 09cded8978dc9e80714c4d85b0322337b0a1e5e0
+- name: github.com/klauspost/crc32
+  version: 19b0b332c9e4516a6370a0456e6182c3b5036720
+- name: github.com/labstack/echo
+  version: c1358eda73823de3cab12584f27f047c7ed12b58
+  subpackages:
+  - '...'
+  - engine/standard
+  - middleware
+  - engine
+  - log
+- name: github.com/labstack/gommon
+  version: 722aa12d41c236ce78ff48eac1cafe0107ecdc9d
+  subpackages:
+  - log
+  - bytes
+  - color
+- name: github.com/lib/pq
+  version: 4dd446efc17690bc53e154025146f73203b18309
+  subpackages:
+  - oid
+- name: github.com/mattes/migrate
+  version: ce1b59bb819416ca67422929b1cb48bb342720b6
+- name: github.com/mattn/go-colorable
+  version: 9056b7a9f2d1f2d96498d6d146acd1f9d5ed3d59
+- name: github.com/mattn/go-isatty
+  version: 56b76bdf51f7708750eac80fa38b952bb9f32639
+- name: github.com/mgutz/ansi
+  version: c286dcecd19ff979eeb73ea444e479b903f2cfcb
+- name: github.com/mgutz/logxi
+  version: 7d364cab682d1b7b9063a3293c9e8c3087194940
+  subpackages:
+  - v1
+- name: github.com/mgutz/str
+  version: 968bf66e3da857419e4f6e71b2d5c9ae95682dc4
+- name: github.com/pmylund/go-cache
+  version: 1881a9bccb818787f68c52bfba648c6cf34c34fa
+- name: github.com/simpleton/tinker-api
+  version: 719b2b7b5f45e03599ba4b7b297a3ffcc1a81654
+  subpackages:
+  - models
+  - routers
+  - conf
+  - handlers
+- name: github.com/valyala/bytebufferpool
+  version: 8ebd0474e5a2f0a5c7a74ad2bf421a1d1a90264f
+- name: github.com/valyala/fasthttp
+  version: 881ac52b00ef21896de49a8aa185467c8a9ae49c
+- name: github.com/valyala/fasttemplate
+  version: 3b874956e03f1636d171bda64b130f9135f42cff
+- name: golang.org/x/net
+  version: e90d6d0afc4c315a0d87a568ae68577cc15149a0
+  subpackages:
+  - context
+- name: golang.org/x/sys
+  version: b518c298ac9dc94b6ac0757394f50d10c5dfa25a
+  subpackages:
+  - unix
+- name: gopkg.in/mgutz/dat.v1
+  version: 12949dfa90b45a1a62e6227fc1607c4fa1a3274c
+  subpackages:
+  - sqlx-runner
+  - common
+  - reflectx
+  - kvs
+  - postgres
+testImports: []
