@@ -19,8 +19,8 @@ prod_grayscale_servers = ['']
 prod_all_servers = ['120.55.119.4']
 
 log_folder = '/data/log'
-project_path = '/home/www/sites/tinker-api'
-clone_src_path = '/src/github.com/simpleton/tinker-api'
+project_path = '/home/www/sites/{proj}'.format(proj=project_name***REMOVED***
+clone_src_path = '/src/github.com/simpleton/{proj}'.format(proj=project_name***REMOVED***
 repo = 'git@github.com:simpleton/tinker-api.git'
 
 STAGES = {
@@ -179,16 +179,14 @@ def _copy_all_supervisor_con***REMOVED***g(projects, current_host***REMOVED***:
     with cd("{repo_path}/supervisord".format(repo_path=env.project_repo_path***REMOVED******REMOVED***:
         for ***REMOVED***lename in projects:
             _copy_supervisor_conf(***REMOVED***lename***REMOVED***
-
-def _restart_site(proj***REMOVED***:
-    #_gen_supervisor_conf(***REMOVED***
+"""
+supervisor util function
+"""
+def _restart_proj(***REMOVED***:
     _reload_supervisor_con***REMOVED***g(***REMOVED***
-    run('supervisorctl restart %s' % "".join(proj.split('_'***REMOVED******REMOVED******REMOVED***
-
-def _restart_projs(***REMOVED***:
-    _reload_supervisor_con***REMOVED***g(***REMOVED***
-    for proj in sub_projs:
-        _restart_site(proj***REMOVED***
+    # the supervisor's item name didn't allow contain "-" or "_",
+    # we remove it at here
+    run('supervisorctl restart %s' % "".join(project_name.split('-'***REMOVED******REMOVED******REMOVED***
 
 def _reload_supervisor_con***REMOVED***g(***REMOVED***:
     run('supervisorctl reread'***REMOVED***
