@@ -33,3 +33,6 @@ import:
   - package: github.com/mgutz/ansi
   - package: github.com/mgutz/str
   - package: github.com/pmylund/go-cache
+  - package: github.com/garyburd/redigo
+    subpackages:
+      - /redis
