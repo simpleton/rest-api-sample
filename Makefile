@@ -8,6 +8,7 @@ tinker-api:
 
 clean:
 	@rm -rf bin
+	go clean
 
 prepare:
 	glide install
