@@ -36,3 +36,5 @@ import:
   - package: github.com/garyburd/redigo
     subpackages:
       - /redis
+  - package: golang.org/x/net
+  - package: github.com/lib/pq
