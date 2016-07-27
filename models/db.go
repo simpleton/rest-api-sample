@@ -44,6 +44,7 @@ func newDB(***REMOVED*** (db *runner.DB, err error***REMOVED*** {
 	// Log any query over 10ms as warnings. (optional***REMOVED***
 	runner.LogQueriesThreshold = 36 * time.Millisecond
 	db = runner.NewDB(rawDB, "postgres"***REMOVED***
+	glog.Debug("Open db success"***REMOVED***
 	return db, err
 }
 
