@@ -6,16 +6,19 @@ import (
 	"github.com/labstack/echo/engine/standard"
 	"github.com/labstack/echo/middleware"
 	"github.com/simpleton/tinker-api/routers"
+	glog "github.com/labstack/gommon/log"
 	"github.com/simpleton/tinker-api/models"
 ***REMOVED***
 
 func main(***REMOVED*** {
 	server := echo.New(***REMOVED***
+	server.Logger(***REMOVED***.SetLevel(glog.DEBUG***REMOVED***
 	server.Use(middleware.Logger(***REMOVED******REMOVED***
 	server.Use(middleware.Recover(***REMOVED******REMOVED***
 	server.Use(middleware.BodyLimit("2M"***REMOVED******REMOVED***
 
 	//Run the API
+
 	api := routers.NewAPIRouter(server***REMOVED***
 	api.Init(***REMOVED***
 
