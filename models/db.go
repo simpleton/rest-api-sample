@@ -16,7 +16,7 @@ var DB *runner.DB
 
 func newDB(***REMOVED*** (db *runner.DB, err error***REMOVED*** {
 	dbConn := fmt.Sprintf("dbname=%s user=%s password=%s host=%s sslmode=disable", conf.DbName, conf.DbUser, conf.DbPwd, conf.DbHost***REMOVED***
-	glog.Debug("Open db %s", dbConn***REMOVED***
+	glog.Debug("Open db ", dbConn***REMOVED***
 	rawDB, err := sql.Open(
 		conf.DbType,
 		dbConn,
