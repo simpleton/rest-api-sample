@@ -13,6 +13,7 @@ import (
 ***REMOVED***
 
 var DB *runner.DB
+var RawDB *sql.DB
 
 func newDB(***REMOVED*** (db *runner.DB, err error***REMOVED*** {
 	dbConn := fmt.Sprintf("dbname=%s user=%s password=%s host=%s sslmode=disable", conf.DbName, conf.DbUser, conf.DbPwd, conf.DbHost***REMOVED***
@@ -54,3 +55,5 @@ func InitDB(***REMOVED*** (err error***REMOVED*** {
 	glog.Info("Init DB Done"***REMOVED***
 	return
 }
+
+

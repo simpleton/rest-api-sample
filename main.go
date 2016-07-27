@@ -13,6 +13,7 @@ import (
 func main(***REMOVED*** {
 	server := echo.New(***REMOVED***
 	server.Logger(***REMOVED***.SetLevel(glog.DEBUG***REMOVED***
+
 	server.Use(middleware.Logger(***REMOVED******REMOVED***
 	server.Use(middleware.Recover(***REMOVED******REMOVED***
 	server.Use(middleware.BodyLimit("2M"***REMOVED******REMOVED***
@@ -21,7 +22,8 @@ func main(***REMOVED*** {
 
 	api := routers.NewAPIRouter(server***REMOVED***
 	api.Init(***REMOVED***
-
+	defer models.RawDB.Close(***REMOVED***
+	
 	if err := models.InitDB(***REMOVED***; err != nil {
 		panic(err***REMOVED***
 	}
