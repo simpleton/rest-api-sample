@@ -66,13 +66,6 @@ imports:
   version: 968bf66e3da857419e4f6e71b2d5c9ae95682dc4
 - name: github.com/pmylund/go-cache
   version: 1881a9bccb818787f68c52bfba648c6cf34c34fa
-- name: github.com/simpleton/tinker-api
-  version: 719b2b7b5f45e03599ba4b7b297a3ffcc1a81654
-  subpackages:
-  - models
-  - routers
-  - conf
-  - handlers
 - name: github.com/valyala/bytebufferpool
   version: 8ebd0474e5a2f0a5c7a74ad2bf421a1d1a90264f
 - name: github.com/valyala/fasthttp
