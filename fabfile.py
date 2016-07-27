@@ -38,7 +38,7 @@ STAGES = {
     'prod': {
         'hosts': prod_all_servers,
         'password': www_usr_pwd,
-        'user': 'www',
+        'user': 'root',
         'project_repo': repo,
         'project_repo_path': "/".join([project_path, clone_src_path]***REMOVED***,
         'log_folder': log_folder,
