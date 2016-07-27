@@ -15,10 +15,11 @@ import (
 var DB *runner.DB
 
 func newDB(***REMOVED*** (db *runner.DB, err error***REMOVED*** {
-	glog.Debug("Open db"***REMOVED***
+	dbConn := fmt.Sprintf("dbname=%s user=%s password=%s host=%s sslmode=disable", conf.DbName, conf.DbUser, conf.DbPwd, conf.DbHost***REMOVED***
+	glog.Debug("Open db %s", dbConn***REMOVED***
 	rawDB, err := sql.Open(
 		conf.DbType,
-		fmt.Sprintf("dbname=%s user=%s password=%s host=%s sslmode=disable", conf.DbName, conf.DbUser, conf.DbPwd, conf.DbHost***REMOVED***,
+		dbConn,
 	***REMOVED***
 	if err != nil {
 		glog.Error(err***REMOVED***
