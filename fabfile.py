@@ -197,8 +197,8 @@ def _build_proj(***REMOVED***:
         run('make clean && make prepare && make'***REMOVED***
 
 def _gen_doc(***REMOVED***:
-    with cd("{repo_path}".format(repo_path=env.project_repo_path***REMOVED******REMOVED***:
-        _warning("didn't implement _gen_doc"***REMOVED***
+    with cd("{repo_path}/swagger".format(repo_path=env.project_repo_path***REMOVED******REMOVED***:
+        run('swagger-codegen generate -i swagger.yaml -l swagger'***REMOVED***
 
 def _info(log***REMOVED***:
     print colored(log, "green"***REMOVED***

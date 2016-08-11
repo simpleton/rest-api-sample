@@ -69,12 +69,9 @@ paths:
             $ref: '#/de***REMOVED***nitions/loginUser'
       responses:
         200:
-          description: return the access_token
+          description:
           schema:
-            type: object
-            properties:
-              token:
-                type: string
+            $ref: '#/de***REMOVED***nitions/retStatus'
 
 
 ################################################################################
@@ -88,3 +85,18 @@ de***REMOVED***nitions:
         type: string
       password:
         type: string
+      email:
+        type: string
+
+  retStatus:
+    type: object
+    properties:
+      status:
+        type: string
+      code:
+        type: integer
+      message:
+        type: string
+      data:
+        type: object
+

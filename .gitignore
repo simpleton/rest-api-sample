@@ -31,3 +31,4 @@ node_modules
 secret.py
 deploy.lock
 *.pyc
+swagger/swagger.json

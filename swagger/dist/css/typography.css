@@ -1,0 +1,14 @@
+/* Google Font's Droid Sans */
+@font-face {
+  font-family: 'Droid Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Droid Sans'***REMOVED***, local('DroidSans'***REMOVED***, url('../fonts/DroidSans.ttf'***REMOVED*** format('truetype'***REMOVED***;
+}
+/* Google Font's Droid Sans Bold */
+@font-face {
+  font-family: 'Droid Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Droid Sans Bold'***REMOVED***, local('DroidSans-Bold'***REMOVED***, url('../fonts/DroidSans-Bold.ttf'***REMOVED*** format('truetype'***REMOVED***;
+}

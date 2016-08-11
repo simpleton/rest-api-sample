@@ -1,0 +1,20 @@
+<script>
+var qp = null;
+if(window.location.hash***REMOVED*** {
+  qp = location.hash.substring(1***REMOVED***;
+}
+***REMOVED*** {
+  qp = location.search.substring(1***REMOVED***;
+}
+qp = qp ? JSON.parse('{"' + qp.replace(/&/g, '","'***REMOVED***.replace(/=/g,'":"'***REMOVED*** + '"}',
+  function(key, value***REMOVED*** {
+    return key===""?value:decodeURIComponent(value***REMOVED*** }
+  ***REMOVED***:{}
+
+if (window.opener.swaggerUi.tokenUrl***REMOVED***
+    window.opener.processOAuthCode(qp***REMOVED***;
+***REMOVED***
+    window.opener.onOAuthComplete(qp***REMOVED***;
+
+window.close(***REMOVED***;
+</script>
