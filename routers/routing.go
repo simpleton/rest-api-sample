@@ -30,7 +30,7 @@ func (self *APIRouter***REMOVED*** Init(***REMOVED*** {
 	self.server.File("/swagger.json", "swagger/swagger.json"***REMOVED***
 	self.server.Use(middleware.StaticWithCon***REMOVED***g(middleware.StaticCon***REMOVED***g{
 		Root:   "swagger/dist",
-		HTML5:  "true",
+		HTML5:  true,
 	}***REMOVED******REMOVED***
 	v1 := self.server.Group("/v1"***REMOVED***
 	v1.Use(middleware.JWT([]byte(conf.JwtSecret***REMOVED******REMOVED******REMOVED*** //sha1 value of "tinker-api"
