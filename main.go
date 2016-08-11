@@ -15,7 +15,7 @@ func main(***REMOVED*** {
 
 	server.Use(middleware.Logger(***REMOVED******REMOVED***
 	server.Use(middleware.Recover(***REMOVED******REMOVED***
-	server.Use(middleware.BodyLimit("2M"***REMOVED******REMOVED***
+	//server.Use(middleware.BodyLimit("2M"***REMOVED******REMOVED***
 
 	//Run the API
 	server.Logger(***REMOVED***.Debug("Init Router"***REMOVED***
