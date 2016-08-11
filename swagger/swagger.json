@@ -1,0 +1,91 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "0.0.1",
+    "title" : "Tinker-api"
+  },
+  "host" : "api.tinkerpatch.com",
+  "tags" : [ {
+    "name" : "Users"
+  }, {
+    "name" : "Relationships",
+    "description" : "Relationships are expressed using the following terms:\n\n**outgoing_status**: Your relationship to the user. Can be \"follows\",\n  \"requested\", \"none\".\n**incoming_status**: A user's relationship to you. Can be \"followed_by\",\n  \"requested_by\", \"blocked_by_you\", \"none\".\n"
+  } ],
+  "schemes" : [ "https" ],
+  "produces" : [ "application/json" ],
+  "paths" : {
+    "/register" : {
+      "post" : {
+        "tags" : [ "Users" ],
+        "description" : "\"register a account with password\"\n",
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "login with password",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/de***REMOVED***nitions/loginUser"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "null",
+            "schema" : {
+              "$ref" : "#/de***REMOVED***nitions/retStatus"
+            }
+          }
+        }
+      }
+    }
+  },
+  "de***REMOVED***nitions" : {
+    "loginUser" : {
+      "type" : "object",
+      "properties" : {
+        "username" : {
+          "type" : "string"
+        },
+        "password" : {
+          "type" : "string"
+        },
+        "email" : {
+          "type" : "string"
+        }
+      }
+    },
+    "retStatus" : {
+      "type" : "object",
+      "properties" : {
+        "status" : {
+          "type" : "string"
+        },
+        "code" : {
+          "type" : "integer"
+        },
+        "message" : {
+          "type" : "string"
+        },
+        "data" : {
+          "type" : "object",
+          "properties" : { }
+        }
+      }
+    }
+  },
+  "parameters" : {
+    "user-id" : {
+      "name" : "user-id",
+      "in" : "path",
+      "description" : "The user identi***REMOVED***er number",
+      "required" : true,
+      "type" : "number"
+    },
+    "tag-name" : {
+      "name" : "tag-name",
+      "in" : "path",
+      "description" : "Tag name",
+      "required" : true,
+      "type" : "string"
+    }
+  }
+}
