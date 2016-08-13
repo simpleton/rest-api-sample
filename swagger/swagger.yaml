@@ -66,7 +66,7 @@ paths:
           name: body
           description: login with password
           schema:
-            $ref: '#/de***REMOVED***nitions/loginUser'
+            $ref: '#/de***REMOVED***nitions/registerInfo'
       responses:
         200:
           description:
@@ -78,7 +78,7 @@ paths:
 #                                 De***REMOVED***nitions                                  #
 ################################################################################
 de***REMOVED***nitions:
-  loginUser:
+  registerInfo:
     type: object
     properties:
       username:
