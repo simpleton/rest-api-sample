@@ -37,8 +37,6 @@ import:
   subpackages:
   - redis
 - package: github.com/go-swagger/go-swagger
-  version: ~0.5.9
-- package: github.com/go-openapi/strfmt
-- package: github.com/go-openapi/errors
-- package: github.com/go-openapi/validate
-- package: github.com/go-openapi/swag
+  subpackages:
+  - '...'
+  version: 0.5.0
