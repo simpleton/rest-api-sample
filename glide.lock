@@ -1,6 +1,8 @@
-hash: fa364b29ebdc73751460f9f550c1fdc9d3fe23b7a495ea73c53dd1f3cf17d545
-updated: 2016-07-17T05:14:39.188718368+08:00
+hash: 615ae72831257cc6ee87a1a31bd002b9e35d7d1c0acff5a5d637887822bc9314
+updated: 2016-08-14T01:34:23.932189666+08:00
 imports:
+- name: github.com/asaskevich/govalidator
+  version: 593d64559f7600f29581a3ee42177f5dbded27a9
 - name: github.com/cenkalti/backoff
   version: cdf48bbc1eb78d1349cbda326a4a037f7ba565c6
 - name: github.com/dgrijalva/jwt-go
@@ -22,6 +24,16 @@ imports:
   subpackages:
   - redis
   - internal
+- name: github.com/go-openapi/errors
+  version: d24ebc2075bad502fac3a8ae27aa6dd58e1952dc
+- name: github.com/go-openapi/strfmt
+  version: d65c7fdb29eca313476e529628176fe17e58c488
+- name: github.com/go-openapi/swag
+  version: 1d0bd113de87027671077d3c71eb3ac5d7dbba72
+- name: github.com/go-openapi/validate
+  version: deaf2c9013bc1a7f4c774662259a506ba874d80f
+- name: github.com/go-swagger/go-swagger
+  version: fade7c68fe6ea117733051b041c590569c428d67
 - name: github.com/jmoiron/sqlx
   version: bdae0c3219c3bdb92f3d7c70825018712787c933
   subpackages:
@@ -50,6 +62,12 @@ imports:
   version: 4dd446efc17690bc53e154025146f73203b18309
   subpackages:
   - oid
+- name: github.com/mailru/easyjson
+  version: d5b7844b561a7bc640052f1b935f7b800330d7e0
+  subpackages:
+  - jlexer
+  - jwriter
+  - buffer
 - name: github.com/mattes/migrate
   version: ce1b59bb819416ca67422929b1cb48bb342720b6
 - name: github.com/mattn/go-colorable

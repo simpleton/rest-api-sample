@@ -57,6 +57,7 @@ parameters:
 paths:
   /register:
     post:
+      tags: ["auth"]
       description: |
         "register a account with password"
       tags:
@@ -68,33 +69,45 @@ paths:
           schema:
             $ref: '#/de***REMOVED***nitions/registerInfo'
       responses:
-        200:
-          description:
+        '201':
+          description: Created
           schema:
             $ref: '#/de***REMOVED***nitions/retStatus'
-
+        default:
+          description: Error
+          schema:
+            $ref: '#/de***REMOVED***nitions/retStatus'
 
 ################################################################################
 #                                 De***REMOVED***nitions                                  #
 ################################################################################
+
 de***REMOVED***nitions:
   registerInfo:
     type: object
+    required:
+      - username
+      - password
+      - email
     properties:
       username:
         type: string
       password:
         type: string
+        minLength: 6
       email:
         type: string
 
   retStatus:
     type: object
+    required:
+      - status
     properties:
       status:
         type: string
       code:
         type: integer
+        format: int64
       message:
         type: string
       data:

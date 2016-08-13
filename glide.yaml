@@ -1,38 +1,44 @@
 package: .
 import:
-  - package: github.com/labstack/echo
-    subpackages:
-      - /...
-  - package: github.com/labstack/gommon
-    subpackages:
-      - /log
-  - package: github.com/mattn/go-colorable
-  - package: github.com/mattn/go-isatty
-  - package: github.com/valyala/fasttemplate
-  - package: github.com/facebookgo/grace
-    subpackages:
-      - /...
-  - package: github.com/dgrijalva/jwt-go
-  - package: github.com/facebookgo/httpdown
-  - package: github.com/facebookgo/clock
-  - package: github.com/facebookgo/stats
-  - package: github.com/valyala/fasthttp
-  - package: github.com/klauspost/compress
-  - package: github.com/klauspost/cpuid
-  - package: github.com/klauspost/crc32
-  - package: github.com/valyala/bytebufferpool
-  - package: gopkg.in/mgutz/dat.v1
-    subpackages:
-      - /sqlx-runner
-  - package: github.com/mattes/migrate
-  - package: github.com/mgutz/logxi
-    subpackages:
-      - /v1
-  - package: github.com/cenkalti/backoff
-  - package: github.com/jmoiron/sqlx
-  - package: github.com/mgutz/ansi
-  - package: github.com/mgutz/str
-  - package: github.com/pmylund/go-cache
-  - package: github.com/garyburd/redigo
-    subpackages:
-      - /redis
+- package: github.com/labstack/echo
+  subpackages:
+  - '...'
+- package: github.com/labstack/gommon
+  subpackages:
+  - log
+- package: github.com/mattn/go-colorable
+- package: github.com/mattn/go-isatty
+- package: github.com/valyala/fasttemplate
+- package: github.com/facebookgo/grace
+  subpackages:
+  - '...'
+- package: github.com/dgrijalva/jwt-go
+- package: github.com/facebookgo/httpdown
+- package: github.com/facebookgo/clock
+- package: github.com/facebookgo/stats
+- package: github.com/valyala/fasthttp
+- package: github.com/klauspost/compress
+- package: github.com/klauspost/cpuid
+- package: github.com/klauspost/crc32
+- package: github.com/valyala/bytebufferpool
+- package: gopkg.in/mgutz/dat.v1
+  subpackages:
+  - sqlx-runner
+- package: github.com/mattes/migrate
+- package: github.com/mgutz/logxi
+  subpackages:
+  - v1
+- package: github.com/cenkalti/backoff
+- package: github.com/jmoiron/sqlx
+- package: github.com/mgutz/ansi
+- package: github.com/mgutz/str
+- package: github.com/pmylund/go-cache
+- package: github.com/garyburd/redigo
+  subpackages:
+  - redis
+- package: github.com/go-swagger/go-swagger
+  version: ~0.5.9
+- package: github.com/go-openapi/strfmt
+- package: github.com/go-openapi/errors
+- package: github.com/go-openapi/validate
+- package: github.com/go-openapi/swag
