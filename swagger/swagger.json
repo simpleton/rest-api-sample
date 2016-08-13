@@ -24,12 +24,18 @@
           "description" : "login with password",
           "required" : false,
           "schema" : {
-            "$ref" : "#/de***REMOVED***nitions/loginUser"
+            "$ref" : "#/de***REMOVED***nitions/registerInfo"
           }
         } ],
         "responses" : {
-          "200" : {
-            "description" : "null",
+          "201" : {
+            "description" : "Created",
+            "schema" : {
+              "$ref" : "#/de***REMOVED***nitions/retStatus"
+            }
+          },
+          "default" : {
+            "description" : "Error",
             "schema" : {
               "$ref" : "#/de***REMOVED***nitions/retStatus"
             }
@@ -39,14 +45,16 @@
     }
   },
   "de***REMOVED***nitions" : {
-    "loginUser" : {
+    "registerInfo" : {
       "type" : "object",
+      "required" : [ "email", "password", "username" ],
       "properties" : {
         "username" : {
           "type" : "string"
         },
         "password" : {
-          "type" : "string"
+          "type" : "string",
+          "minLength" : 6
         },
         "email" : {
           "type" : "string"
@@ -55,12 +63,14 @@
     },
     "retStatus" : {
       "type" : "object",
+      "required" : [ "status" ],
       "properties" : {
         "status" : {
           "type" : "string"
         },
         "code" : {
-          "type" : "integer"
+          "type" : "integer",
+          "format" : "int64"
         },
         "message" : {
           "type" : "string"
