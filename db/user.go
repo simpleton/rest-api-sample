@@ -38,9 +38,10 @@ func CheckEmailExisted(email string***REMOVED*** (bool, error***REMOVED*** {
 
 func CreateUser(username, password, email, salt string***REMOVED*** error {
 	saltPassword := fmt.Sprintf("%s@%s", password, salt***REMOVED***
+	hashPassword := sha256.Sum256([]byte(saltPassword***REMOVED******REMOVED***
 	userData := User{
 		UserName: username,
-		Password: sha256.Sum256([]byte(saltPassword***REMOVED******REMOVED***,
+		Password: string(hashPassword[:]***REMOVED***,
 		Email:    email,
 		Slat:     salt,
 	}
