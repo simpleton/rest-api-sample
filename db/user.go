@@ -46,7 +46,7 @@ func CreateUser(username, password, email, salt string***REMOVED*** error {
 	err := DB.InsertInto("t_user"***REMOVED***.
 		Blacklist("f_id"***REMOVED***.
 		Record(userData***REMOVED***.
-		Returning("f_id, f_uesr_name, f_email"***REMOVED***.
+		Returning("f_id", "f_uesr_name", "f_email"***REMOVED***.
 		QueryScalar(&userData***REMOVED***
 	glog.Info("CreateUser", userData***REMOVED***
 	return err
