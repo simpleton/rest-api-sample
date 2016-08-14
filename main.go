@@ -18,7 +18,7 @@ func main(***REMOVED*** {
 	server.Use(middleware.Recover(***REMOVED******REMOVED***
 	server.Use(middleware.BodyLimit("4M"***REMOVED******REMOVED***
 	server.Use(middleware.CORSWithCon***REMOVED***g(middleware.CORSCon***REMOVED***g{
-		AllowOrigins: []string{"https://api.tinkerpatch.com", "http://swagger.io"},
+		AllowOrigins: []string{"https://api.tinkerpatch.com", "http://swagger.io", "http://api.tinkerpatch.com"},
 		AllowHeaders: []string{echo.HeaderOrigin, echo.HeaderContentType},
 	}***REMOVED******REMOVED***
 	
