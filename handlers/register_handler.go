@@ -28,7 +28,7 @@ func(this *RegisterHandler***REMOVED*** Register(c echo.Context***REMOVED*** err
 	}
 	salt := uuid.NewV4(***REMOVED***
 	err := db.CreateUser(register.Username, register.Password, register.Email, salt.String(***REMOVED******REMOVED***
-	if err {
+	if err != nil {
 		return c.JSON(http.StatusBadRequest, response.StatusCode(http.StatusBadRequest***REMOVED***.Message(err.Error(***REMOVED******REMOVED******REMOVED***
 	}
 	return c.JSON(http.StatusCreated, register***REMOVED***
