@@ -31,7 +31,7 @@ func CheckEmailExisted(email string***REMOVED*** (bool, error***REMOVED*** {
 	if n == 0 {
 		return false, err
 	} ***REMOVED*** {
-		return true, err
+		return true, fmt.Errorf("the user email already existed: %s", email***REMOVED***
 	}
 }
 
