@@ -20,13 +20,16 @@ func(this *RegisterHandler***REMOVED*** Register(c echo.Context***REMOVED*** err
 	}
 	// check user existed
 	if existed, err := db.CheckEmailExisted(register.Email***REMOVED***; err != nil {
-		c.JSON(http.StatusBadRequest, response.StatusCode(http.StatusBadRequest***REMOVED***.Message(err.Error(***REMOVED******REMOVED******REMOVED***
+		return c.JSON(http.StatusBadRequest, response.StatusCode(http.StatusBadRequest***REMOVED***.Message(err.Error(***REMOVED******REMOVED******REMOVED***
 	} ***REMOVED*** {
 		if existed {
 			return c.JSON(http.StatusBadRequest, response.StatusCode(http.StatusBadRequest***REMOVED***.Message(err.Error(***REMOVED******REMOVED******REMOVED***
 		}
 	}
 	salt := uuid.NewV4(***REMOVED***
-	db.CreateUser(register.Username, register.Password, register.Email, salt.String(***REMOVED******REMOVED***
+	err := db.CreateUser(register.Username, register.Password, register.Email, salt.String(***REMOVED******REMOVED***
+	if err {
+		return c.JSON(http.StatusBadRequest, response.StatusCode(http.StatusBadRequest***REMOVED***.Message(err.Error(***REMOVED******REMOVED******REMOVED***
+	}
 	return c.JSON(http.StatusCreated, register***REMOVED***
 }
