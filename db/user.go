@@ -1,5 +1,10 @@
 package db
 
+import (
+	glog "github.com/labstack/gommon/log"
+	"fmt"
+***REMOVED***
+
 type User struct {
 	ID         int64  `db:"f_id"`
 	UserName   string `db:"f_user_name"`
@@ -27,4 +32,21 @@ func CheckEmailExisted(email string***REMOVED*** (bool, error***REMOVED*** {
 	} ***REMOVED*** {
 		return true, err
 	}
+}
+
+func CreateUser(username, password, email, salt string***REMOVED*** error {
+	password = fmt.Sprintf("%s:%s", password, salt***REMOVED***
+	userData := User{
+		UserName: username,
+		Password: password,
+		Email: email,
+		Slat: salt,
+	}
+	err := DB.InsertInto("payments"***REMOVED***.
+		Blacklist("f_id"***REMOVED***.
+		Record(userData***REMOVED***.
+		Returning("id"***REMOVED***.
+		QueryScalar(&userData***REMOVED***
+	glog.Info("Init DB Done"***REMOVED***
+	return err
 }

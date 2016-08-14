@@ -26,10 +26,7 @@ func(this *RegisterHandler***REMOVED*** Register(c echo.Context***REMOVED*** err
 			return c.JSON(http.StatusBadRequest, response.StatusCode(http.StatusBadRequest***REMOVED***.Message(err.Error(***REMOVED******REMOVED******REMOVED***
 		}
 	}
-	// A V4 UUID will panic by default if the systems CPRNG fails - this can
-	// be changed by registering your own generator
-	u4 := uuid.NewV4(***REMOVED***
-	c.Logger(***REMOVED***.Debug("version %d variant %x: %s\n", u4.Version(***REMOVED***, u4.Variant(***REMOVED***, u4***REMOVED***
-	// save the info to db
+	salt := uuid.NewV4(***REMOVED***
+	db.CreateUser(register.Username, register.Password, register.Email, salt***REMOVED***
 	return c.JSON(http.StatusCreated, register***REMOVED***
 }
