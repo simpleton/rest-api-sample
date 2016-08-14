@@ -17,7 +17,11 @@ func main(***REMOVED*** {
 	server.Use(middleware.Logger(***REMOVED******REMOVED***
 	server.Use(middleware.Recover(***REMOVED******REMOVED***
 	server.Use(middleware.BodyLimit("4M"***REMOVED******REMOVED***
-
+	server.Use(middleware.CORSWithCon***REMOVED***g(middleware.CORSCon***REMOVED***g{
+		AllowOrigins: []string{"https://api.tinkerpatch.com", "http://swagger.io"},
+		AllowHeaders: []string{echo.HeaderOrigin, echo.HeaderContentType},
+	}***REMOVED******REMOVED***
+	
 	//Run the API
 	server.Logger(***REMOVED***.Debug("Init Router"***REMOVED***
 	api := routers.NewAPIRouter(server***REMOVED***
