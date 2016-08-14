@@ -1,5 +1,5 @@
-hash: 4806094043c001fd6954c829347e18d70870dc4ab610a1c301346dac296627f6
-updated: 2016-08-14T06:28:34.622055497+08:00
+hash: 0fa14833194cc6d1813ec39161fd88783c867dd273583cc5d1f9a6cef3afdd95
+updated: 2016-08-14T23:39:33.14787566+08:00
 imports:
 - name: github.com/asaskevich/govalidator
   version: 9699ab6b38bee2e02cd3fe8b99ecf67665395c96
@@ -33,6 +33,10 @@ imports:
   - httpkit/validate
   - strfmt
   - swag
+- name: github.com/gpmgo/gopm
+  version: 93fb1b742e0103c38dabf68c6dd0b9e9a1da37a4
+  subpackages:
+  - modules/log
 - name: github.com/jmoiron/sqlx
   version: bdae0c3219c3bdb92f3d7c70825018712787c933
   subpackages:
@@ -77,6 +81,8 @@ imports:
   version: 968bf66e3da857419e4f6e71b2d5c9ae95682dc4
 - name: github.com/pmylund/go-cache
   version: 1881a9bccb818787f68c52bfba648c6cf34c34fa
+- name: github.com/twinj/uuid
+  version: 89173bcdda19db0eb88aef1e1cb1cb2505561d31
 - name: github.com/valyala/bytebufferpool
   version: 8ebd0474e5a2f0a5c7a74ad2bf421a1d1a90264f
 - name: github.com/valyala/fasthttp

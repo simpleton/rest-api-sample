@@ -37,6 +37,8 @@ import:
   subpackages:
   - redis
 - package: github.com/go-swagger/go-swagger
+  version: 0.5.0
   subpackages:
   - '...'
-  version: 0.5.0
+- package: github.com/twinj/uuid
+  version: ^0.10.0
