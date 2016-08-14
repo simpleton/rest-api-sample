@@ -4,6 +4,7 @@ import (
 	"fmt"
 	glog "github.com/labstack/gommon/log"
 	"crypto/sha256"
+	"encoding/hex"
 ***REMOVED***
 
 type User struct {
@@ -41,7 +42,7 @@ func CreateUser(username, password, email, salt string***REMOVED*** error {
 	hashPassword := sha256.Sum256([]byte(saltPassword***REMOVED******REMOVED***
 	userData := User{
 		UserName: username,
-		Password: string(hashPassword[:]***REMOVED***,
+		Password: hex.EncodeToString(hashPassword[:]***REMOVED***,
 		Email:    email,
 		Slat:     salt,
 	}
