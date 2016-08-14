@@ -8,11 +8,12 @@ import (
 type User struct {
 	ID         int64  `db:"f_id"`
 	UserName   string `db:"f_user_name"`
-	UserAvatar int64  `db:"f_user_avatar"`
+	UserAvatar string `db:"f_user_avatar"`
 	Email      string `db:"f_email"`
 	Mobile     string `db:"f_mobile"`
 	Password   string `db:"f_password"`
 	Slat       string `db:"f_salt"`
+	LockStatus int64  `db:"f_lock_state"`
 }
 
 func GetUserByEmail(email string***REMOVED*** (*User, error***REMOVED*** {
