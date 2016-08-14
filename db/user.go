@@ -1,8 +1,9 @@
 package db
 
 import (
-	glog "github.com/labstack/gommon/log"
 	"fmt"
+	glog "github.com/labstack/gommon/log"
+	"crypto/sha256"
 ***REMOVED***
 
 type User struct {
@@ -36,12 +37,12 @@ func CheckEmailExisted(email string***REMOVED*** (bool, error***REMOVED*** {
 }
 
 func CreateUser(username, password, email, salt string***REMOVED*** error {
-	password = fmt.Sprintf("%s:%s", password, salt***REMOVED***
+	saltPassword := fmt.Sprintf("%s@%s", password, salt***REMOVED***
 	userData := User{
 		UserName: username,
-		Password: password,
-		Email: email,
-		Slat: salt,
+		Password: sha256.Sum256([]byte(saltPassword***REMOVED******REMOVED***,
+		Email:    email,
+		Slat:     salt,
 	}
 	err := DB.InsertInto("t_user"***REMOVED***.
 		Blacklist("f_id"***REMOVED***.
