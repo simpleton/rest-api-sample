@@ -7,6 +7,7 @@ import (
 	"github.com/labstack/echo/middleware"
 	"github.com/simpleton/tinker-api/routers"
 	glog "github.com/labstack/gommon/log"
+	"github.com/simpleton/tinker-api/models"
 ***REMOVED***
 
 func main(***REMOVED*** {
@@ -23,10 +24,10 @@ func main(***REMOVED*** {
 	api.Init(***REMOVED***
 
 	server.Logger(***REMOVED***.Debug("Init Database"***REMOVED***
-	//if err := models.InitDB(***REMOVED***; err != nil {
-	//	panic(err***REMOVED***
-	//}
-	//defer models.RawDB.Close(***REMOVED***
+	if err := models.InitDB(***REMOVED***; err != nil {
+		panic(err***REMOVED***
+	}
+	defer models.RawDB.Close(***REMOVED***
 
 	std := standard.New(":8300"***REMOVED***
 	std.SetHandler(server***REMOVED***
