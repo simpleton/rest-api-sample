@@ -42,11 +42,11 @@ func CreateUser(username, password, email, salt string***REMOVED*** error {
 		Email: email,
 		Slat: salt,
 	}
-	err := DB.InsertInto("payments"***REMOVED***.
+	err := DB.InsertInto("t_user"***REMOVED***.
 		Blacklist("f_id"***REMOVED***.
 		Record(userData***REMOVED***.
-		Returning("id"***REMOVED***.
+		Returning("f_id, f_uesr_name, f_email"***REMOVED***.
 		QueryScalar(&userData***REMOVED***
-	glog.Info("Init DB Done"***REMOVED***
+	glog.Info("CreateUser", userData***REMOVED***
 	return err
 }
