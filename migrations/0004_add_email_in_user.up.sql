@@ -1,0 +1,1 @@
+ALTER TABLE t_user ADD f_email VARCHAR(256***REMOVED***;

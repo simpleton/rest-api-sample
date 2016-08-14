@@ -1,4 +1,4 @@
-package models
+package db
 
 import (
 	"database/sql"
@@ -50,7 +50,6 @@ func newDB(***REMOVED*** (db *runner.DB, err error***REMOVED*** {
 
 func InitDB(***REMOVED*** (err error***REMOVED*** {
 	glog.SetLevel(glog.DEBUG***REMOVED***
-	glog.SetPre***REMOVED***x("DB"***REMOVED***
 	glog.Info("Init DB"***REMOVED***
 	DB, err = newDB(***REMOVED***;
 	glog.Info("Init DB Done"***REMOVED***
