@@ -55,17 +55,15 @@ parameters:
 #                                           Paths                              #
 ################################################################################
 paths:
-  /register:
+  /users/register:
     post:
-      tags: ["auth"]
+      tags: ["Users"]
       description: |
         "register a account with password"
-      tags:
-        - Users
+      operationId: addOne
       parameters:
         - in: body
           name: body
-          description: login with password
           schema:
             $ref: '#/de***REMOVED***nitions/registerInfo'
       responses:
@@ -75,6 +73,21 @@ paths:
             $ref: '#/de***REMOVED***nitions/retStatus'
         default:
           description: Error
+          schema:
+            $ref: '#/de***REMOVED***nitions/retStatus'
+  /users/email_login:
+    post:
+      tags: ["Users"]
+      description: "login in with password"
+      operationId: ***REMOVED***nd
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/de***REMOVED***nitions/emailLogin'
+      responses:
+        '200':
+          description: Logined
           schema:
             $ref: '#/de***REMOVED***nitions/retStatus'
 
@@ -112,4 +125,19 @@ de***REMOVED***nitions:
         type: string
       data:
         type: object
+
+  emailLogin:
+    type: object
+    required:
+      - password
+      - rkey
+      - username
+    properties:
+      email:
+        type: string
+      password:
+        type: string
+      rkey:
+        type: string
+
 
