@@ -17,11 +17,11 @@ func(this *LoginHandler***REMOVED*** EmailLogin(c echo.Context***REMOVED*** erro
 	emailLogin := new(models.EmailLogin***REMOVED***
 	response := models.NewJsend(***REMOVED***
 	if err := c.Bind(emailLogin***REMOVED***; err != nil {
-		return c.JSON(http.StatusUnauthorized, response.StatusCode(http.StatusUnauthorized***REMOVED***.Message(err.Error(***REMOVED******REMOVED******REMOVED***
+		return c.JSON(http.StatusBadRequest, response.StatusCode(http.StatusBadRequest***REMOVED***.Message(err.Error(***REMOVED******REMOVED******REMOVED***
 	}
 	userInfo, err := db.LoginWithEmail(*emailLogin.Email, emailLogin.Password***REMOVED***
 	if err != nil {
-		return c.JSON(http.StatusUnauthorized, response.StatusCode(http.StatusUnauthorized***REMOVED***.Message(err.Error(***REMOVED******REMOVED******REMOVED***
+		return c.JSON(http.StatusBadRequest, response.StatusCode(http.StatusBadRequest***REMOVED***.Message(err.Error(***REMOVED******REMOVED******REMOVED***
 	}
 	if userInfo != nil {
 		// Create token
