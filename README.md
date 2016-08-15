@@ -24,3 +24,14 @@ RESTful api for  tinker web
   * `./migration.sh next -n` roll back the previous n migrations
   * `./migration.sh version` show current version
   * `./migration.sh redo` roll back the most recently applied migration, then run it again
+
+### How to write api
+
+1. write the spec in `swagger/swagger.yml`
+
+  * online editor `http://editor.swagger.io/#/`
+
+2. run `./gen_swagger.sh` to generate models and swagger.json which is used by swagger-ui
+3. write routing in `routing.go` ***REMOVED***le
+4. implement logic in accordant handler ***REMOVED***le
+5. please use the [jsend](https://labs.omniti.com/labs/jsend***REMOVED*** as the response format
