@@ -14,14 +14,37 @@
   "schemes" : [ "https" ],
   "produces" : [ "application/json" ],
   "paths" : {
+    "/auth" : {
+      "post" : {
+        "tags" : [ "account" ],
+        "description" : "login in with password",
+        "operationId" : "***REMOVED***nd",
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/de***REMOVED***nitions/emailLogin"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Logined",
+            "schema" : {
+              "$ref" : "#/de***REMOVED***nitions/retStatus"
+            }
+          }
+        }
+      }
+    },
     "/register" : {
       "post" : {
         "tags" : [ "Users" ],
         "description" : "\"register a account with password\"\n",
+        "operationId" : "addOne",
         "parameters" : [ {
           "in" : "body",
           "name" : "body",
-          "description" : "login with password",
           "required" : false,
           "schema" : {
             "$ref" : "#/de***REMOVED***nitions/registerInfo"
@@ -78,6 +101,21 @@
         "data" : {
           "type" : "object",
           "properties" : { }
+        }
+      }
+    },
+    "emailLogin" : {
+      "type" : "object",
+      "required" : [ "password", "rkey", "username" ],
+      "properties" : {
+        "username" : {
+          "type" : "string"
+        },
+        "password" : {
+          "type" : "string"
+        },
+        "rkey" : {
+          "type" : "string"
         }
       }
     }
