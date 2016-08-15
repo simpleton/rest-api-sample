@@ -106,9 +106,9 @@
     },
     "emailLogin" : {
       "type" : "object",
-      "required" : [ "password", "rkey", "username" ],
+      "required" : [ "password", "rkey" ],
       "properties" : {
-        "username" : {
+        "email" : {
           "type" : "string"
         },
         "password" : {

@@ -16,7 +16,7 @@ func(this *RegisterHandler***REMOVED*** Register(c echo.Context***REMOVED*** err
 	register := new(models.RegisterInfo***REMOVED***
 	response := models.NewJsend(***REMOVED***
 	if err := c.Bind(register***REMOVED***; err != nil {
-		c.JSON(http.StatusBadRequest, response.StatusCode(http.StatusBadRequest***REMOVED***.Message(err.Error(***REMOVED******REMOVED******REMOVED***
+		return c.JSON(http.StatusBadRequest, response.StatusCode(http.StatusBadRequest***REMOVED***.Message(err.Error(***REMOVED******REMOVED******REMOVED***
 	}
 	// check user existed
 	if existed, err := db.CheckEmailExisted(register.Email***REMOVED***; err != nil {

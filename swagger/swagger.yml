@@ -133,7 +133,7 @@ de***REMOVED***nitions:
       - rkey
       - username
     properties:
-      username:
+      email:
         type: string
       password:
         type: string

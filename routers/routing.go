@@ -23,7 +23,7 @@ func (self *APIRouter***REMOVED*** Init(***REMOVED*** {
 	registerHandler := handlers.RegisterHandler{}
 	userHandler := handlers.UserHandler{}
 
-	self.server.POST("/auth/pwd", loginHandler.PwdLogin***REMOVED***
+	self.server.POST("/auth/email_login", loginHandler.EmailLogin***REMOVED***
 	self.server.POST("/auth/mobile", loginHandler.MobileLogin***REMOVED***
 	self.server.PUT("/auth/reset", loginHandler.ResetPassword***REMOVED***
 	self.server.POST("/register", registerHandler.Register***REMOVED***

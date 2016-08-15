@@ -16,6 +16,10 @@ swagger:model emailLogin
 */
 type EmailLogin struct {
 
+	/* email
+	 */
+	Email *string `json:"email,omitempty"`
+
 	/* password
 
 	Required: true
@@ -27,12 +31,6 @@ type EmailLogin struct {
 	Required: true
 	*/
 	Rkey string `json:"rkey"`
-
-	/* username
-
-	Required: true
-	*/
-	Username string `json:"username"`
 }
 
 // Validate validates this email login
@@ -45,11 +43,6 @@ func (m *EmailLogin***REMOVED*** Validate(formats strfmt.Registry***REMOVED*** e
 	}
 
 	if err := m.validateRkey(formats***REMOVED***; err != nil {
-		// prop
-		res = append(res, err***REMOVED***
-	}
-
-	if err := m.validateUsername(formats***REMOVED***; err != nil {
 		// prop
 		res = append(res, err***REMOVED***
 	}
@@ -72,15 +65,6 @@ func (m *EmailLogin***REMOVED*** validatePassword(formats strfmt.Registry***REMO
 func (m *EmailLogin***REMOVED*** validateRkey(formats strfmt.Registry***REMOVED*** error {
 
 	if err := validate.RequiredString("rkey", "body", string(m.Rkey***REMOVED******REMOVED***; err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *EmailLogin***REMOVED*** validateUsername(formats strfmt.Registry***REMOVED*** error {
-
-	if err := validate.RequiredString("username", "body", string(m.Username***REMOVED******REMOVED***; err != nil {
 		return err
 	}
 
