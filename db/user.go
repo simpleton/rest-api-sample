@@ -21,7 +21,7 @@ type User struct {
 func LoginWithEmail(email, password string***REMOVED*** (*User, error***REMOVED*** {
 	user := new(User***REMOVED***
 	err := DB.Select("*"***REMOVED***.
-		From("f_user"***REMOVED***.
+		From("t_user"***REMOVED***.
 		Where("f_email = $1", email***REMOVED***.
 		QueryStruct(user***REMOVED***
 	if err == nil {
