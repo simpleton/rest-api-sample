@@ -5,6 +5,7 @@ import (
 	glog "github.com/labstack/gommon/log"
 	"crypto/sha256"
 	"encoding/hex"
+	"gopkg.in/mgutz/dat.v1"
 ***REMOVED***
 
 type User struct {
@@ -16,6 +17,8 @@ type User struct {
 	Password   string `db:"f_password"`
 	Slat       string `db:"f_salt"`
 	LockStatus int64  `db:"f_lock_state"`
+	UpdatedAt  dat.NullTime  `db:"f_updated_timestamp"`
+	CreatedAt  dat.NullTime  `db:"f_created_timestamp"`
 }
 
 func LoginWithEmail(email, password string***REMOVED*** (*User, error***REMOVED*** {
