@@ -75,9 +75,9 @@ paths:
           description: Error
           schema:
             $ref: '#/de***REMOVED***nitions/retStatus'
-  /auth:
+  /auth/email_login:
     post:
-      tags: ["account"]
+      tags: ["Users"]
       description: "login in with password"
       operationId: ***REMOVED***nd
       parameters:

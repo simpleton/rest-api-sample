@@ -14,9 +14,9 @@
   "schemes" : [ "https" ],
   "produces" : [ "application/json" ],
   "paths" : {
-    "/auth" : {
+    "/auth/email_login" : {
       "post" : {
-        "tags" : [ "account" ],
+        "tags" : [ "Users" ],
         "description" : "login in with password",
         "operationId" : "***REMOVED***nd",
         "parameters" : [ {
