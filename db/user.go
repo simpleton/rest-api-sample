@@ -18,12 +18,19 @@ type User struct {
 	LockStatus int64  `db:"f_lock_state"`
 }
 
-func GetUserByEmail(email string***REMOVED*** (*User, error***REMOVED*** {
+func LoginWithEmail(email, password string***REMOVED*** (*User, error***REMOVED*** {
 	user := new(User***REMOVED***
 	err := DB.Select("*"***REMOVED***.
 		From("f_user"***REMOVED***.
 		Where("f_email = $1", email***REMOVED***.
 		QueryStruct(user***REMOVED***
+	if err == nil {
+		if hashPassword(password, user.Slat***REMOVED*** == user.Password {
+			return user, nil
+		} ***REMOVED*** {
+			return nil, fmt.Errorf("password or username is incorrect."***REMOVED***
+		}
+	}
 	return user, err
 }
 
@@ -38,11 +45,9 @@ func CheckEmailExisted(email string***REMOVED*** (bool, error***REMOVED*** {
 }
 
 func CreateUser(username, password, email, salt string***REMOVED*** error {
-	saltPassword := fmt.Sprintf("%s@%s", password, salt***REMOVED***
-	hashPassword := sha256.Sum256([]byte(saltPassword***REMOVED******REMOVED***
 	userData := User{
 		UserName: username,
-		Password: hex.EncodeToString(hashPassword[:]***REMOVED***,
+		Password: hashPassword(password, salt***REMOVED***,
 		Email:    email,
 		Slat:     salt,
 	}
@@ -53,4 +58,10 @@ func CreateUser(username, password, email, salt string***REMOVED*** error {
 		QueryScalar(&userData.ID***REMOVED***
 	glog.Info("CreateUser", userData***REMOVED***
 	return err
+}
+
+func hashPassword(password, salt string***REMOVED*** string {
+	saltPassword := fmt.Sprintf("%s@%s", password, salt***REMOVED***
+	hashPassword := sha256.Sum256([]byte(saltPassword***REMOVED******REMOVED***
+	return hex.EncodeToString(hashPassword[:]***REMOVED***
 }

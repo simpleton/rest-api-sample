@@ -19,7 +19,7 @@ func(this *LoginHandler***REMOVED*** EmailLogin(c echo.Context***REMOVED*** erro
 	if err := c.Bind(emailLogin***REMOVED***; err != nil {
 		return c.JSON(http.StatusUnauthorized, response.StatusCode(http.StatusUnauthorized***REMOVED***.Message(err.Error(***REMOVED******REMOVED******REMOVED***
 	}
-	userInfo, err := db.GetUserByEmail(*emailLogin.Email***REMOVED***
+	userInfo, err := db.LoginWithEmail(*emailLogin.Email, emailLogin.Password***REMOVED***
 	if err != nil {
 		return c.JSON(http.StatusUnauthorized, response.StatusCode(http.StatusUnauthorized***REMOVED***.Message(err.Error(***REMOVED******REMOVED******REMOVED***
 	}
