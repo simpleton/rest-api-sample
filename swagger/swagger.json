@@ -14,7 +14,7 @@
   "schemes" : [ "https" ],
   "produces" : [ "application/json" ],
   "paths" : {
-    "/auth/email_login" : {
+    "/users/email_login" : {
       "post" : {
         "tags" : [ "Users" ],
         "description" : "login in with password",
@@ -37,7 +37,7 @@
         }
       }
     },
-    "/register" : {
+    "/users/register" : {
       "post" : {
         "tags" : [ "Users" ],
         "description" : "\"register a account with password\"\n",

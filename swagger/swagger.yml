@@ -55,7 +55,7 @@ parameters:
 #                                           Paths                              #
 ################################################################################
 paths:
-  /register:
+  /users/register:
     post:
       tags: ["Users"]
       description: |
@@ -75,7 +75,7 @@ paths:
           description: Error
           schema:
             $ref: '#/de***REMOVED***nitions/retStatus'
-  /auth/email_login:
+  /users/email_login:
     post:
       tags: ["Users"]
       description: "login in with password"

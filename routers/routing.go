@@ -23,10 +23,10 @@ func (self *APIRouter***REMOVED*** Init(***REMOVED*** {
 	registerHandler := handlers.RegisterHandler{}
 	userHandler := handlers.UserHandler{}
 
-	self.server.POST("/auth/email_login", loginHandler.EmailLogin***REMOVED***
-	self.server.POST("/auth/mobile", loginHandler.MobileLogin***REMOVED***
-	self.server.PUT("/auth/reset", loginHandler.ResetPassword***REMOVED***
-	self.server.POST("/register", registerHandler.Register***REMOVED***
+	self.server.POST("/users/mobile_login", loginHandler.MobileLogin***REMOVED***
+	self.server.POST("/users/email_login", loginHandler.EmailLogin***REMOVED***
+	self.server.POST("/users/register", registerHandler.Register***REMOVED***
+
 	self.server.File("/swagger.json", "swagger/swagger.json"***REMOVED***
 	self.server.Use(middleware.StaticWithCon***REMOVED***g(middleware.StaticCon***REMOVED***g{
 		Root:   "swagger/dist",

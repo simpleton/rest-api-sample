@@ -25,19 +25,20 @@ func(this *LoginHandler***REMOVED*** EmailLogin(c echo.Context***REMOVED*** erro
 	}
 	if userInfo != nil {
 		// Create token
-		token := jwt.New(jwt.SigningMethodHS256***REMOVED***
+		jwtToken := jwt.New(jwt.SigningMethodHS256***REMOVED***
 
 		// Set claims
-		claims := token.Claims.(jwt.MapClaims***REMOVED***
+		claims := jwtToken.Claims.(jwt.MapClaims***REMOVED***
 		claims["name"] = userInfo.Email
 		claims["exp"] = time.Now(***REMOVED***.Add(time.Hour * 24 * 7***REMOVED***.Unix(***REMOVED***
 
 		// Generate encoded token and send it as response.
-		t, err := token.SignedString([]byte(conf.JwtSecret***REMOVED******REMOVED***
+		t, err := jwtToken.SignedString([]byte(conf.JwtSecret***REMOVED******REMOVED***
 		if err != nil {
 			return err
 		}
-		return c.JSON(http.StatusOK, map[string]string{"token": t}***REMOVED***
+		token := map[string]string{"token": t}
+		return c.JSON(http.StatusOK, response.StatusCode(http.StatusOK***REMOVED***.Data(token***REMOVED******REMOVED***
 	}
 	return echo.ErrUnauthorized
 }
