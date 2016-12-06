@@ -6,7 +6,7 @@ import (
 	"crypto/sha256"
 	"encoding/hex"
 	"gopkg.in/mgutz/dat.v1"
-***REMOVED***
+)
 
 type User struct {
 	ID         int64  `db:"f_id"`
@@ -21,50 +21,50 @@ type User struct {
 	CreatedAt  dat.NullTime  `db:"f_created_timestamp"`
 }
 
-func LoginWithEmail(email, password string***REMOVED*** (*User, error***REMOVED*** {
-	user := new(User***REMOVED***
-	err := DB.Select("*"***REMOVED***.
-		From("t_user"***REMOVED***.
-		Where("f_email = $1", email***REMOVED***.
-		QueryStruct(user***REMOVED***
+func LoginWithEmail(email, password string) (*User, error) {
+	user := new(User)
+	err := DB.Select("*").
+		From("t_user").
+		Where("f_email = $1", email).
+		QueryStruct(user)
 	if err == nil {
-		if hashPassword(password, user.Slat***REMOVED*** == user.Password {
+		if hashPassword(password, user.Slat) == user.Password {
 			return user, nil
-		} ***REMOVED*** {
-			return nil, fmt.Errorf("password or username is incorrect."***REMOVED***
+		} else {
+			return nil, fmt.Errorf("password or username is incorrect.")
 		}
 	}
 	return user, err
 }
 
-func CheckEmailExisted(email string***REMOVED*** (bool, error***REMOVED*** {
+func CheckEmailExisted(email string) (bool, error) {
 	var n int64
-	err := DB.SQL("SELECT count(****REMOVED*** FROM t_user WHERE f_email=$1", email***REMOVED***.QueryScalar(&n***REMOVED***
+	err := DB.SQL("SELECT count(*) FROM t_user WHERE f_email=$1", email).QueryScalar(&n)
 	if n == 0 {
 		return false, err
-	} ***REMOVED*** {
-		return true, fmt.Errorf("the user email already existed: %s", email***REMOVED***
+	} else {
+		return true, fmt.Errorf("the user email already existed: %s", email)
 	}
 }
 
-func CreateUser(username, password, email, salt string***REMOVED*** error {
+func CreateUser(username, password, email, salt string) error {
 	userData := User{
 		UserName: username,
-		Password: hashPassword(password, salt***REMOVED***,
+		Password: hashPassword(password, salt),
 		Email:    email,
 		Slat:     salt,
 	}
-	err := DB.InsertInto("t_user"***REMOVED***.
-		Blacklist("f_id"***REMOVED***.
-		Record(userData***REMOVED***.
-		Returning("f_id"***REMOVED***.
-		QueryScalar(&userData.ID***REMOVED***
-	glog.Info("CreateUser", userData***REMOVED***
+	err := DB.InsertInto("t_user").
+		Blacklist("f_id").
+		Record(userData).
+		Returning("f_id").
+		QueryScalar(&userData.ID)
+	glog.Info("CreateUser", userData)
 	return err
 }
 
-func hashPassword(password, salt string***REMOVED*** string {
-	saltPassword := fmt.Sprintf("%s@%s", password, salt***REMOVED***
-	hashPassword := sha256.Sum256([]byte(saltPassword***REMOVED******REMOVED***
-	return hex.EncodeToString(hashPassword[:]***REMOVED***
+func hashPassword(password, salt string) string {
+	saltPassword := fmt.Sprintf("%s@%s", password, salt)
+	hashPassword := sha256.Sum256([]byte(saltPassword))
+	return hex.EncodeToString(hashPassword[:])
 }

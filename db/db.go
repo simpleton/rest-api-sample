@@ -10,29 +10,29 @@ import (
 	"github.com/simpleton/rest-api-sample/conf"
 	"fmt"
 	glog "github.com/labstack/gommon/log"
-***REMOVED***
+)
 
 var DB *runner.DB
 var RawDB *sql.DB
 
-func newDB(***REMOVED*** (db *runner.DB, err error***REMOVED*** {
-	dbConn := fmt.Sprintf("dbname=%s user=%s password=%s host=%s port=%s sslmode=disable", conf.DBName, conf.DBUser, conf.DBPwd, conf.DBHost, conf.DBPort***REMOVED***
-	glog.Debug("Open db ", dbConn***REMOVED***
+func newDB() (db *runner.DB, err error) {
+	dbConn := fmt.Sprintf("dbname=%s user=%s password=%s host=%s port=%s sslmode=disable", conf.DBName, conf.DBUser, conf.DBPwd, conf.DBHost, conf.DBPort)
+	glog.Debug("Open db ", dbConn)
 	rawDB, err := sql.Open(
 		conf.DbType,
 		dbConn,
-	***REMOVED***
+	)
 	if err != nil {
-		glog.Error(err***REMOVED***
+		glog.Error(err)
 		return
 	}
 
-	// ensures the database can be pinged with an exponential backoff (15 min***REMOVED***
-	runner.MustPing(rawDB***REMOVED***
+	// ensures the database can be pinged with an exponential backoff (15 min)
+	runner.MustPing(rawDB)
 	// set to reasonable values for production
-	glog.Debug("setup DB connections"***REMOVED***
-	rawDB.SetMaxIdleConns(4***REMOVED***
-	rawDB.SetMaxOpenConns(32***REMOVED***
+	glog.Debug("setup DB connections")
+	rawDB.SetMaxIdleConns(4)
+	rawDB.SetMaxOpenConns(32)
 
 	// set this to enable interpolation
 	dat.EnableInterpolation = true
@@ -41,18 +41,18 @@ func newDB(***REMOVED*** (db *runner.DB, err error***REMOVED*** {
 	// Should be disabled in production/release builds.
 	dat.Strict = true
 
-	// Log any query over 10ms as warnings. (optional***REMOVED***
+	// Log any query over 10ms as warnings. (optional)
 	runner.LogQueriesThreshold = 36 * time.Millisecond
-	db = runner.NewDB(rawDB, "postgres"***REMOVED***
-	glog.Debug("Open db success"***REMOVED***
+	db = runner.NewDB(rawDB, "postgres")
+	glog.Debug("Open db success")
 	return db, err
 }
 
-func InitDB(***REMOVED*** (err error***REMOVED*** {
-	glog.SetLevel(glog.DEBUG***REMOVED***
-	glog.Info("Init DB"***REMOVED***
-	DB, err = newDB(***REMOVED***;
-	glog.Info("Init DB Done"***REMOVED***
+func InitDB() (err error) {
+	glog.SetLevel(glog.DEBUG)
+	glog.Info("Init DB")
+	DB, err = newDB();
+	glog.Info("Init DB Done")
 	return
 }
 

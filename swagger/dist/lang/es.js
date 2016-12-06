@@ -37,16 +37,16 @@ window.SwaggerTranslator.learn({
     "See more at":"Ver más en",
     "Contact the developer":"Contactar al desarrollador",
     "api version":"versión de la api",
-    "Response Content Type":"Tipo de Contenido (Content Type***REMOVED*** de la Respuesta",
+    "Response Content Type":"Tipo de Contenido (Content Type) de la Respuesta",
     "fetching resource":"buscando recurso",
     "fetching resource list":"buscando lista del recurso",
     "Explore":"Explorar",
     "Show Swagger Petstore Example Apis":"Mostrar Api Ejemplo de Swagger Petstore",
-    "Can't read from server.  It may not have the appropriate access-control-origin settings.":"No se puede leer del servidor. Tal vez no tiene la con***REMOVED***guración de control de acceso de origen (access-control-origin***REMOVED*** apropiado.",
-    "Please specify the protocol for":"Por favor, especi***REMOVED***car el protocola para",
+    "Can't read from server.  It may not have the appropriate access-control-origin settings.":"No se puede leer del servidor. Tal vez no tiene la configuración de control de acceso de origen (access-control-origin) apropiado.",
+    "Please specify the protocol for":"Por favor, especificar el protocola para",
     "Can't read swagger JSON from":"No se puede leer el JSON de swagger desde",
     "Finished Loading Resource Information. Rendering Swagger UI":"Finalizada la carga del recurso de Información. Mostrando Swagger UI",
     "Unable to read api":"No se puede leer la api",
     "from path":"desde ruta",
     "server returned":"el servidor retornó"
-}***REMOVED***;
+});

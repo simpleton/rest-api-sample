@@ -1,4 +1,4 @@
-# Compiled Object ***REMOVED***les, Static and Dynamic libs (Shared Objects***REMOVED***
+# Compiled Object files, Static and Dynamic libs (Shared Objects)
 *.o
 *.a
 *.so
@@ -7,7 +7,7 @@
 _obj
 _test
 
-# Architecture speci***REMOVED***c extensions/pre***REMOVED***xes
+# Architecture specific extensions/prefixes
 *.[568vq]
 [568vq].out
 

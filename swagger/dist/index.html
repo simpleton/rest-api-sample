@@ -30,24 +30,24 @@
   <!-- <script src='lang/en.js' type='text/javascript'></script> -->
 
   <script type="text/javascript">
-    $(function (***REMOVED*** {
-      var url = window.location.search.match(/url=([^&]+***REMOVED***/***REMOVED***;
-      if (url && url.length > 1***REMOVED*** {
-        url = decodeURIComponent(url[1]***REMOVED***;
-      } ***REMOVED*** {
+    $(function () {
+      var url = window.location.search.match(/url=([^&]+)/);
+      if (url && url.length > 1) {
+        url = decodeURIComponent(url[1]);
+      } else {
         url = "swagger.json";
       }
 
       // Pre load translate...
-      if(window.SwaggerTranslator***REMOVED*** {
-        window.SwaggerTranslator.translate(***REMOVED***;
+      if(window.SwaggerTranslator) {
+        window.SwaggerTranslator.translate();
       }
       window.swaggerUi = new SwaggerUi({
         url: url,
         dom_id: "swagger-ui-container",
         supportedSubmitMethods: ['get', 'post', 'put', 'delete', 'patch'],
-        onComplete: function(swaggerApi, swaggerUi***REMOVED***{
-          if(typeof initOAuth == "function"***REMOVED*** {
+        onComplete: function(swaggerApi, swaggerUi){
+          if(typeof initOAuth == "function") {
             initOAuth({
               clientId: "your-client-id",
               clientSecret: "your-client-secret-if-required",
@@ -55,54 +55,54 @@
               appName: "your-app-name", 
               scopeSeparator: ",",
               additionalQueryStringParams: {}
-            }***REMOVED***;
+            });
           }
 
-          if(window.SwaggerTranslator***REMOVED*** {
-            window.SwaggerTranslator.translate(***REMOVED***;
+          if(window.SwaggerTranslator) {
+            window.SwaggerTranslator.translate();
           }
 
-          $('pre code'***REMOVED***.each(function(i, e***REMOVED*** {
-            hljs.highlightBlock(e***REMOVED***
-          }***REMOVED***;
+          $('pre code').each(function(i, e) {
+            hljs.highlightBlock(e)
+          });
 
-          addApiKeyAuthorization(***REMOVED***;
+          addApiKeyAuthorization();
         },
-        onFailure: function(data***REMOVED*** {
-          log("Unable to Load SwaggerUI"***REMOVED***;
+        onFailure: function(data) {
+          log("Unable to Load SwaggerUI");
         },
         docExpansion: "none",
         jsonEditor: false,
         apisSorter: "alpha",
         defaultModelRendering: 'schema',
         showRequestHeaders: false
-      }***REMOVED***;
+      });
 
-      function addApiKeyAuthorization(***REMOVED***{
-        var key = encodeURIComponent($('#input_apiKey'***REMOVED***[0].value***REMOVED***;
-        if(key && key.trim(***REMOVED*** != ""***REMOVED*** {
-            var apiKeyAuth = new SwaggerClient.ApiKeyAuthorization("api_key", key, "query"***REMOVED***;
-            window.swaggerUi.api.clientAuthorizations.add("api_key", apiKeyAuth***REMOVED***;
-            log("added key " + key***REMOVED***;
+      function addApiKeyAuthorization(){
+        var key = encodeURIComponent($('#input_apiKey')[0].value);
+        if(key && key.trim() != "") {
+            var apiKeyAuth = new SwaggerClient.ApiKeyAuthorization("api_key", key, "query");
+            window.swaggerUi.api.clientAuthorizations.add("api_key", apiKeyAuth);
+            log("added key " + key);
         }
       }
 
-      $('#input_apiKey'***REMOVED***.change(addApiKeyAuthorization***REMOVED***;
+      $('#input_apiKey').change(addApiKeyAuthorization);
 
       // if you have an apiKey you would like to pre-populate on the page for demonstration purposes...
       /*
         var apiKey = "myApiKeyXXXX123456789";
-        $('#input_apiKey'***REMOVED***.val(apiKey***REMOVED***;
+        $('#input_apiKey').val(apiKey);
       */
 
-      window.swaggerUi.load(***REMOVED***;
+      window.swaggerUi.load();
 
-      function log(***REMOVED*** {
-        if ('console' in window***REMOVED*** {
-          console.log.apply(console, arguments***REMOVED***;
+      function log() {
+        if ('console' in window) {
+          console.log.apply(console, arguments);
         }
       }
-  }***REMOVED***;
+  });
   </script>
 </head>
 

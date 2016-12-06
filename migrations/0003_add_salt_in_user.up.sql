@@ -1,1 +1,1 @@
-ALTER TABLE t_user ADD f_salt VARCHAR(256***REMOVED***;
+ALTER TABLE t_user ADD f_salt VARCHAR(256);

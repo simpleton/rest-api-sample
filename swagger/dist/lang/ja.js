@@ -50,4 +50,4 @@ window.SwaggerTranslator.learn({
     "Unable to read api":"APIを読み込めません",
     "from path":"次のパスから",
     "server returned":"サーバからの返答"
-}***REMOVED***;
+});

@@ -50,4 +50,4 @@ window.SwaggerTranslator.learn({
     "Unable to read api":"api okunamadı",
     "from path":"yoldan",
     "server returned":"sunucuya dönüldü"
-}***REMOVED***;
+});

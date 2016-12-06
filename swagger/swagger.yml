@@ -41,7 +41,7 @@ parameters:
   user-id:
     name: user-id
     in: path
-    description: The user identi***REMOVED***er number
+    description: The user identifier number
     type: number
     required: true
   tag-name:
@@ -65,37 +65,37 @@ paths:
         - in: body
           name: body
           schema:
-            $ref: '#/de***REMOVED***nitions/registerInfo'
+            $ref: '#/definitions/registerInfo'
       responses:
         '201':
           description: Created
           schema:
-            $ref: '#/de***REMOVED***nitions/retStatus'
+            $ref: '#/definitions/retStatus'
         default:
           description: Error
           schema:
-            $ref: '#/de***REMOVED***nitions/retStatus'
+            $ref: '#/definitions/retStatus'
   /users/email_login:
     post:
       tags: ["Users"]
       description: "login in with password"
-      operationId: ***REMOVED***nd
+      operationId: find
       parameters:
         - in: body
           name: body
           schema:
-            $ref: '#/de***REMOVED***nitions/emailLogin'
+            $ref: '#/definitions/emailLogin'
       responses:
         '200':
           description: Logined
           schema:
-            $ref: '#/de***REMOVED***nitions/retStatus'
+            $ref: '#/definitions/retStatus'
 
 ################################################################################
-#                                 De***REMOVED***nitions                                  #
+#                                 Definitions                                  #
 ################################################################################
 
-de***REMOVED***nitions:
+definitions:
   registerInfo:
     type: object
     required:

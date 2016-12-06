@@ -1,49 +1,49 @@
 package models
 
 // JSend status codes
-***REMOVED***
+const (
 	StatusSuccess = "success"
 	StatusError   = "error"
 	StatusFail    = "fail"
-***REMOVED***
+)
 
 // A JResponseWriter interface extends http.ResponseWriter of go standard library
 // to add utility methods for JSend format.
 type JSendWriter interface {
-	Data(interface{}***REMOVED*** JSendWriter
-	Message(string***REMOVED*** JSendWriter
-	Status(int***REMOVED*** JSendWriter
+	Data(interface{}) JSendWriter
+	Message(string) JSendWriter
+	Status(int) JSendWriter
 }
 
 type JSendResponse struct {
 	RetStatus
 }
 
-func NewJsend(***REMOVED*** *JSendResponse {
-	return new(JSendResponse***REMOVED***
+func NewJsend() *JSendResponse {
+	return new(JSendResponse)
 }
 
-// Data sets response's "data" ***REMOVED***eld with given value.
-func (self *JSendResponse***REMOVED*** Data(data interface{}***REMOVED*** *JSendResponse {
+// Data sets response's "data" field with given value.
+func (self *JSendResponse) Data(data interface{}) *JSendResponse {
 	self.RetStatus.Data = data;
 	return self
 }
 
-// Message sets response's "message" ***REMOVED***eld with given value.
-func (self *JSendResponse***REMOVED*** Message(msg string***REMOVED*** *JSendResponse {
+// Message sets response's "message" field with given value.
+func (self *JSendResponse) Message(msg string) *JSendResponse {
 	self.RetStatus.Message = &msg
 	return self
 }
 
 // Status sets http statusCode. It is a shorthand for "WriteHeader" method
 // in order to keep method chaining.
-func (self *JSendResponse***REMOVED*** StatusCode(code int64***REMOVED*** *JSendResponse {
+func (self *JSendResponse) StatusCode(code int64) *JSendResponse {
 	self.RetStatus.Code = &code
-	self.RetStatus.Status = getStatus(code***REMOVED***
+	self.RetStatus.Status = getStatus(code)
 	return self
 }
 
-func getStatus(code int64***REMOVED*** string {
+func getStatus(code int64) string {
 	switch {
 	case code >= 500:
 		return StatusError

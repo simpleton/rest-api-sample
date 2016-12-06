@@ -2,7 +2,7 @@
   font-size: 1.5em;
   font-weight: bold;
   text-decoration: none;
-  background: transparent url(../images/logo.png***REMOVED*** no-repeat left center;
+  background: transparent url(../images/logo.png) no-repeat left center;
   padding: 20px 0 20px 40px;
 }
 #text-head {
@@ -12,10 +12,10 @@
   float: right;
   margin-right: 20%;
 }
-.navbar-***REMOVED***xed-top .navbar-nav {
+.navbar-fixed-top .navbar-nav {
   height: auto;
 }
-.navbar-***REMOVED***xed-top .navbar-brand {
+.navbar-fixed-top .navbar-brand {
   height: auto;
 }
 .navbar-header {
@@ -64,7 +64,7 @@ h1 {
   width: 1500px;
   margin: auto;
   margin-top: 0;
-  background-image: url('../images/shield.png'***REMOVED***;
+  background-image: url('../images/shield.png');
   background-repeat: no-repeat;
   background-position: -40px -20px;
   margin-bottom: 210px;
@@ -72,7 +72,7 @@ h1 {
 .container-inner {
   width: 1200px;
   margin: auto;
-  background-color: rgba(223, 227, 228, 0.75***REMOVED***;
+  background-color: rgba(223, 227, 228, 0.75);
   padding-bottom: 40px;
   padding-top: 40px;
   border-radius: 15px;
@@ -142,7 +142,7 @@ hr {
   margin-top: 200px;
 }
 .troubleshootingtext {
-  color: rgba(255, 255, 255, 0.7***REMOVED***;
+  color: rgba(255, 255, 255, 0.7);
   padding-left: 30%;
 }
 .troubleshootingtext li {
@@ -169,7 +169,7 @@ hr {
 }
 .modal-backdrop {
   bottom: 0;
-  position: ***REMOVED***xed;
+  position: fixed;
 }
 .curl {
   padding: 10px;

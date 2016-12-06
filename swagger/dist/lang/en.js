@@ -52,4 +52,4 @@ window.SwaggerTranslator.learn({
     "Unable to read api":"Unable to read api",
     "from path":"from path",
     "server returned":"server returned"
-}***REMOVED***;
+});

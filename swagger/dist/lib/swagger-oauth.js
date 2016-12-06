@@ -8,28 +8,28 @@ var clientSecret;
 var scopeSeparator;
 var additionalQueryStringParams;
 
-function handleLogin(***REMOVED*** {
+function handleLogin() {
   var scopes = [];
 
-  var auths = window.swaggerUi.api.authSchemes || window.swaggerUi.api.securityDe***REMOVED***nitions;
-  if(auths***REMOVED*** {
+  var auths = window.swaggerUi.api.authSchemes || window.swaggerUi.api.securityDefinitions;
+  if(auths) {
     var key;
     var defs = auths;
-    for(key in defs***REMOVED*** {
+    for(key in defs) {
       var auth = defs[key];
-      if(auth.type === 'oauth2' && auth.scopes***REMOVED*** {
+      if(auth.type === 'oauth2' && auth.scopes) {
         var scope;
-        if(Array.isArray(auth.scopes***REMOVED******REMOVED*** {
+        if(Array.isArray(auth.scopes)) {
           // 1.2 support
           var i;
-          for(i = 0; i < auth.scopes.length; i++***REMOVED*** {
-            scopes.push(auth.scopes[i]***REMOVED***;
+          for(i = 0; i < auth.scopes.length; i++) {
+            scopes.push(auth.scopes[i]);
           }
         }
-        ***REMOVED*** {
+        else {
           // 2.0 support
-          for(scope in auth.scopes***REMOVED*** {
-            scopes.push({scope: scope, description: auth.scopes[scope], OAuthSchemeKey: key}***REMOVED***;
+          for(scope in auth.scopes) {
+            scopes.push({scope: scope, description: auth.scopes[scope], OAuthSchemeKey: key});
           }
         }
       }
@@ -37,11 +37,11 @@ function handleLogin(***REMOVED*** {
   }
 
   if(window.swaggerUi.api
-    && window.swaggerUi.api.info***REMOVED*** {
+    && window.swaggerUi.api.info) {
     appName = window.swaggerUi.api.info.title;
   }
 
-  $('.api-popup-dialog'***REMOVED***.remove(***REMOVED***; 
+  $('.api-popup-dialog').remove(); 
   popupDialog = $(
     [
       '<div class="api-popup-dialog">',
@@ -56,101 +56,101 @@ function handleLogin(***REMOVED*** {
         '<p class="error-msg"></p>',
         '<div class="api-popup-actions"><button class="api-popup-authbtn api-button green" type="button">Authorize</button><button class="api-popup-cancel api-button gray" type="button">Cancel</button></div>',
       '</div>',
-      '</div>'].join(''***REMOVED******REMOVED***;
-  $(document.body***REMOVED***.append(popupDialog***REMOVED***;
+      '</div>'].join(''));
+  $(document.body).append(popupDialog);
 
-  //TODO: only display applicable scopes (will need to pass them into handleLogin***REMOVED***
-  popup = popupDialog.***REMOVED***nd('ul.api-popup-scopes'***REMOVED***.empty(***REMOVED***;
-  for (i = 0; i < scopes.length; i ++***REMOVED*** {
+  //TODO: only display applicable scopes (will need to pass them into handleLogin)
+  popup = popupDialog.find('ul.api-popup-scopes').empty();
+  for (i = 0; i < scopes.length; i ++) {
     scope = scopes[i];
     str = '<li><input type="checkbox" id="scope_' + i + '" scope="' + scope.scope + '"' +'" oauthtype="' + scope.OAuthSchemeKey +'"/>' + '<label for="scope_' + i + '">' + scope.scope ;
-    if (scope.description***REMOVED*** {
-      if ($.map(auths, function(n, i***REMOVED*** { return i; }***REMOVED***.length > 1***REMOVED*** //if we have more than one scheme, display schemes
-	    str += '<br/><span class="api-scope-desc">' + scope.description + ' ('+ scope.OAuthSchemeKey+'***REMOVED***' +'</span>';
-	  ***REMOVED***
+    if (scope.description) {
+      if ($.map(auths, function(n, i) { return i; }).length > 1) //if we have more than one scheme, display schemes
+	    str += '<br/><span class="api-scope-desc">' + scope.description + ' ('+ scope.OAuthSchemeKey+')' +'</span>';
+	  else
 	    str += '<br/><span class="api-scope-desc">' + scope.description + '</span>';
     }
     str += '</label></li>';
-    popup.append(str***REMOVED***;
+    popup.append(str);
   }
 
-  var $win = $(window***REMOVED***,
-    dw = $win.width(***REMOVED***,
-    dh = $win.height(***REMOVED***,
-    st = $win.scrollTop(***REMOVED***,
-    dlgWd = popupDialog.outerWidth(***REMOVED***,
-    dlgHt = popupDialog.outerHeight(***REMOVED***,
-    top = (dh -dlgHt***REMOVED***/2 + st,
-    left = (dw - dlgWd***REMOVED***/2;
+  var $win = $(window),
+    dw = $win.width(),
+    dh = $win.height(),
+    st = $win.scrollTop(),
+    dlgWd = popupDialog.outerWidth(),
+    dlgHt = popupDialog.outerHeight(),
+    top = (dh -dlgHt)/2 + st,
+    left = (dw - dlgWd)/2;
 
   popupDialog.css({
-    top: (top < 0? 0 : top***REMOVED*** + 'px',
-    left: (left < 0? 0 : left***REMOVED*** + 'px'
-  }***REMOVED***;
+    top: (top < 0? 0 : top) + 'px',
+    left: (left < 0? 0 : left) + 'px'
+  });
 
-  popupDialog.***REMOVED***nd('button.api-popup-cancel'***REMOVED***.click(function(***REMOVED*** {
-    popupMask.hide(***REMOVED***;
-    popupDialog.hide(***REMOVED***;
-    popupDialog.empty(***REMOVED***;
+  popupDialog.find('button.api-popup-cancel').click(function() {
+    popupMask.hide();
+    popupDialog.hide();
+    popupDialog.empty();
     popupDialog = [];
-  }***REMOVED***;
+  });
 
-  $('button.api-popup-authbtn'***REMOVED***.unbind(***REMOVED***;
-  popupDialog.***REMOVED***nd('button.api-popup-authbtn'***REMOVED***.click(function(***REMOVED*** {
-    popupMask.hide(***REMOVED***;
-    popupDialog.hide(***REMOVED***;
+  $('button.api-popup-authbtn').unbind();
+  popupDialog.find('button.api-popup-authbtn').click(function() {
+    popupMask.hide();
+    popupDialog.hide();
 
     var authSchemes = window.swaggerUi.api.authSchemes;
     var host = window.location;
-    var pathname = location.pathname.substring(0, location.pathname.lastIndexOf("/"***REMOVED******REMOVED***;
+    var pathname = location.pathname.substring(0, location.pathname.lastIndexOf("/"));
     var defaultRedirectUrl = host.protocol + '//' + host.host + pathname + '/o2c.html';
     var redirectUrl = window.oAuthRedirectUrl || defaultRedirectUrl;
     var url = null;
     var scopes = []
-    var o = popup.***REMOVED***nd('input:checked'***REMOVED***; 
+    var o = popup.find('input:checked'); 
     var OAuthSchemeKeys = [];
     var state;
-    for(k =0; k < o.length; k++***REMOVED*** {
-      var scope = $(o[k]***REMOVED***.attr('scope'***REMOVED***;
-      if (scopes.indexOf(scope***REMOVED*** === -1***REMOVED***
-        scopes.push(scope***REMOVED***;
-      var OAuthSchemeKey = $(o[k]***REMOVED***.attr('oauthtype'***REMOVED***;      
-      if (OAuthSchemeKeys.indexOf(OAuthSchemeKey***REMOVED*** === -1***REMOVED***
-          OAuthSchemeKeys.push(OAuthSchemeKey***REMOVED***;
+    for(k =0; k < o.length; k++) {
+      var scope = $(o[k]).attr('scope');
+      if (scopes.indexOf(scope) === -1)
+        scopes.push(scope);
+      var OAuthSchemeKey = $(o[k]).attr('oauthtype');      
+      if (OAuthSchemeKeys.indexOf(OAuthSchemeKey) === -1)
+          OAuthSchemeKeys.push(OAuthSchemeKey);
     }
     
     //TODO: merge not replace if scheme is different from any existing 
-    //(needs to be aware of schemes to do so correctly***REMOVED***
+    //(needs to be aware of schemes to do so correctly)
     window.enabledScopes=scopes;    
     
-    for (var key in authSchemes***REMOVED*** { 
-      if (authSchemes.hasOwnProperty(key***REMOVED*** && OAuthSchemeKeys.indexOf(key***REMOVED*** != -1***REMOVED*** { //only look at keys that match this scope.
+    for (var key in authSchemes) { 
+      if (authSchemes.hasOwnProperty(key) && OAuthSchemeKeys.indexOf(key) != -1) { //only look at keys that match this scope.
         var flow = authSchemes[key].flow;
 
-        if(authSchemes[key].type === 'oauth2' && flow && (flow === 'implicit' || flow === 'accessCode'***REMOVED******REMOVED*** {
+        if(authSchemes[key].type === 'oauth2' && flow && (flow === 'implicit' || flow === 'accessCode')) {
           var dets = authSchemes[key];
-          url = dets.authorizationUrl + '?response_type=' + (flow === 'implicit' ? 'token' : 'code'***REMOVED***;
+          url = dets.authorizationUrl + '?response_type=' + (flow === 'implicit' ? 'token' : 'code');
           window.swaggerUi.tokenName = dets.tokenName || 'access_token';
-          window.swaggerUi.tokenUrl = (flow === 'accessCode' ? dets.tokenUrl : null***REMOVED***;
+          window.swaggerUi.tokenUrl = (flow === 'accessCode' ? dets.tokenUrl : null);
           state = key;
         }
-        ***REMOVED*** if(authSchemes[key].type === 'oauth2' && flow && (flow === 'application'***REMOVED******REMOVED*** {
+        else if(authSchemes[key].type === 'oauth2' && flow && (flow === 'application')) {
             var dets = authSchemes[key];
             window.swaggerUi.tokenName = dets.tokenName || 'access_token';
-            clientCredentialsFlow(scopes, dets.tokenUrl, key***REMOVED***;
+            clientCredentialsFlow(scopes, dets.tokenUrl, key);
             return;
         }        
-        ***REMOVED*** if(authSchemes[key].grantTypes***REMOVED*** {
+        else if(authSchemes[key].grantTypes) {
           // 1.2 support
           var o = authSchemes[key].grantTypes;
-          for(var t in o***REMOVED*** {
-            if(o.hasOwnProperty(t***REMOVED*** && t === 'implicit'***REMOVED*** {
+          for(var t in o) {
+            if(o.hasOwnProperty(t) && t === 'implicit') {
               var dets = o[t];
               var ep = dets.loginEndpoint.url;
               url = dets.loginEndpoint.url + '?response_type=token';
               window.swaggerUi.tokenName = dets.tokenName;
             }
-            ***REMOVED*** if (o.hasOwnProperty(t***REMOVED*** && t === 'accessCode'***REMOVED*** {
+            else if (o.hasOwnProperty(t) && t === 'accessCode') {
               var dets = o[t];
               var ep = dets.tokenRequestEndpoint.url;
               url = dets.tokenRequestEndpoint.url + '?response_type=code';
@@ -163,72 +163,72 @@ function handleLogin(***REMOVED*** {
 
     redirect_uri = redirectUrl;
 
-    url += '&redirect_uri=' + encodeURIComponent(redirectUrl***REMOVED***;
-    url += '&realm=' + encodeURIComponent(realm***REMOVED***;
-    url += '&client_id=' + encodeURIComponent(clientId***REMOVED***;
-    url += '&scope=' + encodeURIComponent(scopes.join(scopeSeparator***REMOVED******REMOVED***;
-    url += '&state=' + encodeURIComponent(state***REMOVED***;
-    for (var key in additionalQueryStringParams***REMOVED*** {
-        url += '&' + key + '=' + encodeURIComponent(additionalQueryStringParams[key]***REMOVED***;
+    url += '&redirect_uri=' + encodeURIComponent(redirectUrl);
+    url += '&realm=' + encodeURIComponent(realm);
+    url += '&client_id=' + encodeURIComponent(clientId);
+    url += '&scope=' + encodeURIComponent(scopes.join(scopeSeparator));
+    url += '&state=' + encodeURIComponent(state);
+    for (var key in additionalQueryStringParams) {
+        url += '&' + key + '=' + encodeURIComponent(additionalQueryStringParams[key]);
     }
 
-    window.open(url***REMOVED***;
-  }***REMOVED***;
+    window.open(url);
+  });
 
-  popupMask.show(***REMOVED***;
-  popupDialog.show(***REMOVED***;
+  popupMask.show();
+  popupDialog.show();
   return;
 }
 
 
-function handleLogout(***REMOVED*** {
-  for(key in window.swaggerUi.api.clientAuthorizations.authz***REMOVED***{
-    window.swaggerUi.api.clientAuthorizations.remove(key***REMOVED***
+function handleLogout() {
+  for(key in window.swaggerUi.api.clientAuthorizations.authz){
+    window.swaggerUi.api.clientAuthorizations.remove(key)
   }
   window.enabledScopes = null;
-  $('.api-ic.ic-on'***REMOVED***.addClass('ic-off'***REMOVED***;
-  $('.api-ic.ic-on'***REMOVED***.removeClass('ic-on'***REMOVED***;
+  $('.api-ic.ic-on').addClass('ic-off');
+  $('.api-ic.ic-on').removeClass('ic-on');
 
   // set the info box
-  $('.api-ic.ic-warning'***REMOVED***.addClass('ic-error'***REMOVED***;
-  $('.api-ic.ic-warning'***REMOVED***.removeClass('ic-warning'***REMOVED***;
+  $('.api-ic.ic-warning').addClass('ic-error');
+  $('.api-ic.ic-warning').removeClass('ic-warning');
 }
 
-function initOAuth(opts***REMOVED*** {
-  var o = (opts||{}***REMOVED***;
+function initOAuth(opts) {
+  var o = (opts||{});
   var errors = [];
 
-  appName = (o.appName||errors.push('missing appName'***REMOVED******REMOVED***;
-  popupMask = (o.popupMask||$('#api-common-mask'***REMOVED******REMOVED***;
-  popupDialog = (o.popupDialog||$('.api-popup-dialog'***REMOVED******REMOVED***;
-  clientId = (o.clientId||errors.push('missing client id'***REMOVED******REMOVED***;
-  clientSecret = (o.clientSecret||null***REMOVED***;
-  realm = (o.realm||errors.push('missing realm'***REMOVED******REMOVED***;
-  scopeSeparator = (o.scopeSeparator||' '***REMOVED***;
-  additionalQueryStringParams = (o.additionalQueryStringParams||{}***REMOVED***;
+  appName = (o.appName||errors.push('missing appName'));
+  popupMask = (o.popupMask||$('#api-common-mask'));
+  popupDialog = (o.popupDialog||$('.api-popup-dialog'));
+  clientId = (o.clientId||errors.push('missing client id'));
+  clientSecret = (o.clientSecret||null);
+  realm = (o.realm||errors.push('missing realm'));
+  scopeSeparator = (o.scopeSeparator||' ');
+  additionalQueryStringParams = (o.additionalQueryStringParams||{});
 
-  if(errors.length > 0***REMOVED***{
-    log('auth unable initialize oauth: ' + errors***REMOVED***;
+  if(errors.length > 0){
+    log('auth unable initialize oauth: ' + errors);
     return;
   }
 
-  $('pre code'***REMOVED***.each(function(i, e***REMOVED*** {hljs.highlightBlock(e***REMOVED***}***REMOVED***;
-  $('.api-ic'***REMOVED***.unbind(***REMOVED***;
-  $('.api-ic'***REMOVED***.click(function(s***REMOVED*** {
-    if($(s.target***REMOVED***.hasClass('ic-off'***REMOVED******REMOVED***
-      handleLogin(***REMOVED***;
-    ***REMOVED*** {
-      handleLogout(***REMOVED***;
+  $('pre code').each(function(i, e) {hljs.highlightBlock(e)});
+  $('.api-ic').unbind();
+  $('.api-ic').click(function(s) {
+    if($(s.target).hasClass('ic-off'))
+      handleLogin();
+    else {
+      handleLogout();
     }
     false;
-  }***REMOVED***;
+  });
 }
 
-function clientCredentialsFlow(scopes, tokenUrl, OAuthSchemeKey***REMOVED*** {
+function clientCredentialsFlow(scopes, tokenUrl, OAuthSchemeKey) {
     var params = {
       'client_id': clientId,
       'client_secret': clientSecret,
-      'scope': scopes.join(' '***REMOVED***,
+      'scope': scopes.join(' '),
       'grant_type': 'client_credentials'
     }
     $.ajax(
@@ -236,19 +236,19 @@ function clientCredentialsFlow(scopes, tokenUrl, OAuthSchemeKey***REMOVED*** {
       url : tokenUrl,
       type: "POST",
       data: params,
-      success:function(data, textStatus, jqXHR***REMOVED***
+      success:function(data, textStatus, jqXHR)
       {
-        onOAuthComplete(data,OAuthSchemeKey***REMOVED***;
+        onOAuthComplete(data,OAuthSchemeKey);
       },
-      error: function(jqXHR, textStatus, errorThrown***REMOVED***
+      error: function(jqXHR, textStatus, errorThrown)
       {
-        onOAuthComplete(""***REMOVED***;
+        onOAuthComplete("");
       }
-    }***REMOVED***;
+    });
     
   }
 
-window.processOAuthCode = function processOAuthCode(data***REMOVED*** {
+window.processOAuthCode = function processOAuthCode(data) {
   var OAuthSchemeKey = data.state;
   var params = {
     'client_id': clientId,
@@ -257,7 +257,7 @@ window.processOAuthCode = function processOAuthCode(data***REMOVED*** {
     'redirect_uri': redirect_uri
   };
 
-  if (clientSecret***REMOVED*** {
+  if (clientSecret) {
     params.client_secret = clientSecret;
   }
 
@@ -266,72 +266,72 @@ window.processOAuthCode = function processOAuthCode(data***REMOVED*** {
     url : window.swaggerUi.tokenUrl,
     type: "POST",
     data: params,
-    success:function(data, textStatus, jqXHR***REMOVED***
+    success:function(data, textStatus, jqXHR)
     {
-      onOAuthComplete(data, OAuthSchemeKey***REMOVED***;
+      onOAuthComplete(data, OAuthSchemeKey);
     },
-    error: function(jqXHR, textStatus, errorThrown***REMOVED***
+    error: function(jqXHR, textStatus, errorThrown)
     {
-      onOAuthComplete(""***REMOVED***;
+      onOAuthComplete("");
     }
-  }***REMOVED***;
+  });
 };
 
-window.onOAuthComplete = function onOAuthComplete(token,OAuthSchemeKey***REMOVED*** {
-  if(token***REMOVED*** {
-    if(token.error***REMOVED*** {
-      var checkbox = $('input[type=checkbox],.secured'***REMOVED***
-      checkbox.each(function(pos***REMOVED***{
+window.onOAuthComplete = function onOAuthComplete(token,OAuthSchemeKey) {
+  if(token) {
+    if(token.error) {
+      var checkbox = $('input[type=checkbox],.secured')
+      checkbox.each(function(pos){
         checkbox[pos].checked = false;
-      }***REMOVED***;
-      alert(token.error***REMOVED***;
+      });
+      alert(token.error);
     }
-    ***REMOVED*** {
+    else {
       var b = token[window.swaggerUi.tokenName];      
-      if (!OAuthSchemeKey***REMOVED***{
+      if (!OAuthSchemeKey){
           OAuthSchemeKey = token.state;
       }
-      if(b***REMOVED***{
-        // if all roles are satis***REMOVED***ed
+      if(b){
+        // if all roles are satisfied
         var o = null;
-        $.each($('.auth .api-ic .api_information_panel'***REMOVED***, function(k, v***REMOVED*** { 
+        $.each($('.auth .api-ic .api_information_panel'), function(k, v) { 
           var children = v;
-          if(children && children.childNodes***REMOVED*** {
+          if(children && children.childNodes) {
             var requiredScopes = [];
-            $.each((children.childNodes***REMOVED***, function (k1, v1***REMOVED***{
+            $.each((children.childNodes), function (k1, v1){
               var inner = v1.innerHTML;
-              if(inner***REMOVED***
-                requiredScopes.push(inner***REMOVED***;
-            }***REMOVED***;
+              if(inner)
+                requiredScopes.push(inner);
+            });
             var diff = [];
-            for(var i=0; i < requiredScopes.length; i++***REMOVED*** {
+            for(var i=0; i < requiredScopes.length; i++) {
               var s = requiredScopes[i];
-              if(window.enabledScopes && window.enabledScopes.indexOf(s***REMOVED*** == -1***REMOVED*** {
-                diff.push(s***REMOVED***;
+              if(window.enabledScopes && window.enabledScopes.indexOf(s) == -1) {
+                diff.push(s);
               }
             }
-            if(diff.length > 0***REMOVED***{
+            if(diff.length > 0){
               o = v.parentNode.parentNode;
-              $(o.parentNode***REMOVED***.***REMOVED***nd('.api-ic.ic-on'***REMOVED***.addClass('ic-off'***REMOVED***;
-              $(o.parentNode***REMOVED***.***REMOVED***nd('.api-ic.ic-on'***REMOVED***.removeClass('ic-on'***REMOVED***;
+              $(o.parentNode).find('.api-ic.ic-on').addClass('ic-off');
+              $(o.parentNode).find('.api-ic.ic-on').removeClass('ic-on');
 
-              // sorry, not all scopes are satis***REMOVED***ed
-              $(o***REMOVED***.***REMOVED***nd('.api-ic'***REMOVED***.addClass('ic-warning'***REMOVED***;
-              $(o***REMOVED***.***REMOVED***nd('.api-ic'***REMOVED***.removeClass('ic-error'***REMOVED***;
+              // sorry, not all scopes are satisfied
+              $(o).find('.api-ic').addClass('ic-warning');
+              $(o).find('.api-ic').removeClass('ic-error');
             }
-            ***REMOVED*** {
+            else {
               o = v.parentNode.parentNode;
-              $(o.parentNode***REMOVED***.***REMOVED***nd('.api-ic.ic-off'***REMOVED***.addClass('ic-on'***REMOVED***;
-              $(o.parentNode***REMOVED***.***REMOVED***nd('.api-ic.ic-off'***REMOVED***.removeClass('ic-off'***REMOVED***;
+              $(o.parentNode).find('.api-ic.ic-off').addClass('ic-on');
+              $(o.parentNode).find('.api-ic.ic-off').removeClass('ic-off');
 
-              // all scopes are satis***REMOVED***ed
-              $(o***REMOVED***.***REMOVED***nd('.api-ic'***REMOVED***.addClass('ic-info'***REMOVED***;
-              $(o***REMOVED***.***REMOVED***nd('.api-ic'***REMOVED***.removeClass('ic-warning'***REMOVED***;
-              $(o***REMOVED***.***REMOVED***nd('.api-ic'***REMOVED***.removeClass('ic-error'***REMOVED***;
+              // all scopes are satisfied
+              $(o).find('.api-ic').addClass('ic-info');
+              $(o).find('.api-ic').removeClass('ic-warning');
+              $(o).find('.api-ic').removeClass('ic-error');
             }
           }
-        }***REMOVED***;
-        window.swaggerUi.api.clientAuthorizations.add(OAuthSchemeKey, new SwaggerClient.ApiKeyAuthorization('Authorization', 'Bearer ' + b, 'header'***REMOVED******REMOVED***;
+        });
+        window.swaggerUi.api.clientAuthorizations.add(OAuthSchemeKey, new SwaggerClient.ApiKeyAuthorization('Authorization', 'Bearer ' + b, 'header'));
       }
     }
   }

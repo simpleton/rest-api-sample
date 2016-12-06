@@ -14,7 +14,7 @@ prepare:
 	proxychains4 glide install
 
 test:
-	$(info ************ NO TEST CURRENTLY ***************REMOVED***
+	$(info ************ NO TEST CURRENTLY ************)
 
 run: rest-api-sample
 	./bin/rest-api-sample

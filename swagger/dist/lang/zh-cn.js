@@ -50,4 +50,4 @@ window.SwaggerTranslator.learn({
     "Unable to read api":"无法读取api",
     "from path":"从路径",
     "server returned":"服务器返回"
-}***REMOVED***;
+});

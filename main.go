@@ -6,31 +6,31 @@ import (
 	"github.com/simpleton/rest-api-sample/routers"
 	glog "github.com/labstack/gommon/log"
 	_ "github.com/simpleton/rest-api-sample/db"
-***REMOVED***
+)
 
-func main(***REMOVED*** {
-	server := echo.New(***REMOVED***
-	server.Logger.SetLevel(glog.DEBUG***REMOVED***
+func main() {
+	server := echo.New()
+	server.Logger.SetLevel(glog.DEBUG)
 
-	server.Use(middleware.Logger(***REMOVED******REMOVED***
-	server.Use(middleware.Recover(***REMOVED******REMOVED***
-	server.Use(middleware.BodyLimit("4M"***REMOVED******REMOVED***
-	server.Use(middleware.CORSWithCon***REMOVED***g(middleware.CORSCon***REMOVED***g{
+	server.Use(middleware.Logger())
+	server.Use(middleware.Recover())
+	server.Use(middleware.BodyLimit("4M"))
+	server.Use(middleware.CORSWithConfig(middleware.CORSConfig{
 		AllowOrigins: []string{"https://api.tinkerpatch.com", "http://*.swagger.io", "http://api.tinkerpatch.com"},
 		AllowHeaders: []string{echo.HeaderOrigin, echo.HeaderContentType},
-	}***REMOVED******REMOVED***
+	}))
 	
 	//Run the API
-	server.Logger.Debug("Init Router"***REMOVED***
-	api := routers.NewAPIRouter(server***REMOVED***
-	api.Init(***REMOVED***
+	server.Logger.Debug("Init Router")
+	api := routers.NewAPIRouter(server)
+	api.Init()
 
-	server.Logger.Debug("Init Database"***REMOVED***
-	//if err := db.InitDB(***REMOVED***; err != nil {
-	//	panic(err***REMOVED***
+	server.Logger.Debug("Init Database")
+	//if err := db.InitDB(); err != nil {
+	//	panic(err)
 	//}
-	//defer db.RawDB.Close(***REMOVED***
+	//defer db.RawDB.Close()
 
-	server.Logger.Debug("Start Running"***REMOVED***
-	server.Logger.Fatal(server.Start(":8300"***REMOVED******REMOVED***
+	server.Logger.Debug("Start Running")
+	server.Logger.Fatal(server.Start(":8300"))
 }
