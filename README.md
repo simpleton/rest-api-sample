@@ -25,6 +25,7 @@ A RESTful api project wirrten by golang(echo***REMOVED***.
   * `./migration.sh version` show current version
   * `./migration.sh redo` roll back the most recently applied migration, then run it again
 
+4. add self to project library in IDEA setting, when you are using IDEA.
 ### How to write api
 
 1. write the spec in `swagger/swagger.yml`

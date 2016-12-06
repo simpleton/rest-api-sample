@@ -5,7 +5,7 @@ import (
 	"github.com/labstack/echo/middleware"
 	"github.com/simpleton/rest-api-sample/routers"
 	glog "github.com/labstack/gommon/log"
-	"github.com/simpleton/rest-api-sample/db"
+	_ "github.com/simpleton/rest-api-sample/db"
 ***REMOVED***
 
 func main(***REMOVED*** {
@@ -26,10 +26,10 @@ func main(***REMOVED*** {
 	api.Init(***REMOVED***
 
 	server.Logger.Debug("Init Database"***REMOVED***
-	if err := db.InitDB(***REMOVED***; err != nil {
-		panic(err***REMOVED***
-	}
-	defer db.RawDB.Close(***REMOVED***
+	//if err := db.InitDB(***REMOVED***; err != nil {
+	//	panic(err***REMOVED***
+	//}
+	//defer db.RawDB.Close(***REMOVED***
 
 	server.Logger.Debug("Start Running"***REMOVED***
 	server.Logger.Fatal(server.Start(":8300"***REMOVED******REMOVED***

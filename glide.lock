@@ -77,21 +77,6 @@ imports:
   version: e7a9def80f35fe1b170b7b8b68871d59dea117e1
 - name: github.com/satori/go.uuid
   version: b061729afc07e77a8aa4fad0a2fd840958f1942a
-- name: github.com/simpleton/rest-api-sample
-  version: 3037645f5db3da35e05da0b7d42e9a0ad6aa86e4
-  subpackages:
-  - conf
-  - db
-  - handlers
-  - models
-  - routers
-- name: github.com/simpleton/tinker-api
-  version: 3037645f5db3da35e05da0b7d42e9a0ad6aa86e4
-  subpackages:
-  - conf
-  - db
-  - handlers
-  - models
 - name: github.com/twinj/uuid
   version: 89173bcdda19db0eb88aef1e1cb1cb2505561d31
 - name: github.com/tylerb/graceful

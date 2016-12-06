@@ -27,8 +27,8 @@ func (self *APIRouter***REMOVED*** Init(***REMOVED*** {
 	self.server.POST("/users/email_login", loginHandler.EmailLogin***REMOVED***
 	self.server.POST("/users/register", registerHandler.Register***REMOVED***
 
-	self.server.File("/swagger.json", "swagger/swagger.json"***REMOVED***
-	self.server.Static("/", "swagger/dist"***REMOVED***
+	self.server.File("/docs/swagger.json", "swagger/swagger.json"***REMOVED***
+	self.server.Static("/docs", "swagger/dist"***REMOVED***
 	v1 := self.server.Group("/v1"***REMOVED***
 	v1.Use(middleware.JWT([]byte(conf.JwtSecret***REMOVED******REMOVED******REMOVED*** //sha1 value of "rest-api-sample"
 	v1.GET("/user", userHandler.Get***REMOVED***
