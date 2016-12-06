@@ -12,7 +12,7 @@ from fabric.operations import require
 from termcolor import colored
 from secret import www_usr_pwd, root_usr_pwd
 
-project_name = "tinker-api"
+project_name = "rest-api-sample"
 
 dev_servers = ['120.55.119.4']
 prod_grayscale_servers = ['']
@@ -21,7 +21,7 @@ prod_all_servers = ['120.55.119.4']
 log_folder = '/data/log'
 project_path = '/home/www/sites/{proj}'.format(proj=project_name***REMOVED***
 clone_src_path = '/src/github.com/simpleton/{proj}'.format(proj=project_name***REMOVED***
-repo = 'git@github.com:simpleton/tinker-api.git'
+repo = 'git@github.com:simpleton/rest-api-sample.git'
 
 STAGES = {
     'dev': {

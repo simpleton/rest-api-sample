@@ -1,17 +1,17 @@
-hash: 0fa14833194cc6d1813ec39161fd88783c867dd273583cc5d1f9a6cef3afdd95
-updated: 2016-08-14T23:39:33.14787566+08:00
+hash: 7668b5e028e184ce0763cd7bf79dde8dd2ba966f0ce44e7d38093011e049bfce
+updated: 2016-12-07T01:16:04.302277015+08:00
 imports:
 - name: github.com/asaskevich/govalidator
   version: 9699ab6b38bee2e02cd3fe8b99ecf67665395c96
   repo: https://github.com/asaskevich/govalidator
 - name: github.com/cenkalti/backoff
-  version: cdf48bbc1eb78d1349cbda326a4a037f7ba565c6
+  version: b02f2bbce11d7ea6b97f282ef1771b0fe2f65ef3
 - name: github.com/dgrijalva/jwt-go
-  version: 01aeca54ebda6e0fbfafd0a524d234159c05ec20
+  version: 9ed569b5d1ac936e6494082958d63a6aa4fff99a
 - name: github.com/facebookgo/clock
   version: 600d898af40aa09a7a93ecb9265d87b0504b6f03
 - name: github.com/facebookgo/grace
-  version: 053ab5d25436faedf3fe76fbf3da797c8c27c659
+  version: 5729e484473f52048578af1b80d0008c7024089b
   subpackages:
   - '...'
   - gracehttp
@@ -21,10 +21,10 @@ imports:
 - name: github.com/facebookgo/stats
   version: 1b76add642e42c6ffba7211ad7b3939ce654526e
 - name: github.com/garyburd/redigo
-  version: b8dc90050f24c1a73a52f107f3f575be67b21b7c
+  version: d7de57ceb51b029d5c5a61e26587f672e2834178
   subpackages:
-  - redis
   - internal
+  - redis
 - name: github.com/go-swagger/go-swagger
   version: ff42df2bf231f6a12383b36332f8364254ea86d6
   subpackages:
@@ -33,79 +33,103 @@ imports:
   - httpkit/validate
   - strfmt
   - swag
-- name: github.com/gpmgo/gopm
-  version: 93fb1b742e0103c38dabf68c6dd0b9e9a1da37a4
-  subpackages:
-  - modules/log
 - name: github.com/jmoiron/sqlx
-  version: bdae0c3219c3bdb92f3d7c70825018712787c933
+  version: 43975e693e7ab5df0ba436482a697b7c2bf6a87e
   subpackages:
   - reflectx
 - name: github.com/klauspost/compress
-  version: 14eb9c4951195779ecfbec34431a976de7335b0a
+  version: e3b7981a12dd3cab49afa1d3a50e715846f23732
 - name: github.com/klauspost/cpuid
   version: 09cded8978dc9e80714c4d85b0322337b0a1e5e0
 - name: github.com/klauspost/crc32
-  version: 19b0b332c9e4516a6370a0456e6182c3b5036720
+  version: cb6bfca970f6908083f26f39a79009d608efd5cd
 - name: github.com/labstack/echo
-  version: c1358eda73823de3cab12584f27f047c7ed12b58
+  version: f10daac5d65c4fe56252d0dde8f2f6b61b31577c
   subpackages:
   - '...'
-  - engine/standard
   - middleware
-  - engine
-  - log
 - name: github.com/labstack/gommon
-  version: 722aa12d41c236ce78ff48eac1cafe0107ecdc9d
+  version: 447fe7433567c785af957e549aadae2bf2000071
   subpackages:
-  - log
   - bytes
   - color
+  - log
+  - random
 - name: github.com/lib/pq
-  version: 4dd446efc17690bc53e154025146f73203b18309
+  version: 4a82388ebc5138c8289fe9bc602cb0b3e32cd617
   subpackages:
   - oid
 - name: github.com/mattes/migrate
   version: ce1b59bb819416ca67422929b1cb48bb342720b6
 - name: github.com/mattn/go-colorable
-  version: 9056b7a9f2d1f2d96498d6d146acd1f9d5ed3d59
+  version: d228849504861217f796da67fae4f6e347643f15
 - name: github.com/mattn/go-isatty
-  version: 56b76bdf51f7708750eac80fa38b952bb9f32639
+  version: 30a891c33c7cde7b02a981314b4228ec99380cca
 - name: github.com/mgutz/ansi
   version: c286dcecd19ff979eeb73ea444e479b903f2cfcb
 - name: github.com/mgutz/logxi
-  version: 7d364cab682d1b7b9063a3293c9e8c3087194940
+  version: aebf8a7d67ab4625e0fd4a665766fef9a709161b
   subpackages:
   - v1
 - name: github.com/mgutz/str
   version: 968bf66e3da857419e4f6e71b2d5c9ae95682dc4
 - name: github.com/pmylund/go-cache
-  version: 1881a9bccb818787f68c52bfba648c6cf34c34fa
+  version: e7a9def80f35fe1b170b7b8b68871d59dea117e1
+- name: github.com/satori/go.uuid
+  version: b061729afc07e77a8aa4fad0a2fd840958f1942a
+- name: github.com/simpleton/rest-api-sample
+  version: 3037645f5db3da35e05da0b7d42e9a0ad6aa86e4
+  subpackages:
+  - conf
+  - db
+  - handlers
+  - models
+  - routers
+- name: github.com/simpleton/tinker-api
+  version: 3037645f5db3da35e05da0b7d42e9a0ad6aa86e4
+  subpackages:
+  - conf
+  - db
+  - handlers
+  - models
 - name: github.com/twinj/uuid
   version: 89173bcdda19db0eb88aef1e1cb1cb2505561d31
+- name: github.com/tylerb/graceful
+  version: 4df1190835320af7076dfcf27b3d071fd3612caf
 - name: github.com/valyala/bytebufferpool
-  version: 8ebd0474e5a2f0a5c7a74ad2bf421a1d1a90264f
+  version: e746df99fe4a3986f4d4f79e13c1e0117ce9c2f7
 - name: github.com/valyala/fasthttp
-  version: 881ac52b00ef21896de49a8aa185467c8a9ae49c
+  version: 1dc5bc133b3436ba3e2a3a0690e94e26b9d823b2
 - name: github.com/valyala/fasttemplate
   version: 3b874956e03f1636d171bda64b130f9135f42cff
+- name: golang.org/x/crypto
+  version: 8a549a1948fc5271eb24f36dcb0d3b47dec75a16
+  repo: https://github.com/golang/crypto
+  subpackages:
+  - acme
+  - acme/autocert
 - name: golang.org/x/net
-  version: e90d6d0afc4c315a0d87a568ae68577cc15149a0
+  version: e7da8edaa52631091740908acaf2c2d4c9b3ce90
+  repo: https://go.googlesource.com/net
   subpackages:
   - context
+  - context/ctxhttp
+  - netutil
 - name: golang.org/x/sys
-  version: b518c298ac9dc94b6ac0757394f50d10c5dfa25a
+  version: 478fcf54317e52ab69f40bb4c7a1520288d7f7ea
+  repo: https://github.com/golang/sys.git
   subpackages:
   - unix
 - name: gopkg.in/mgutz/dat.v1
-  version: 12949dfa90b45a1a62e6227fc1607c4fa1a3274c
+  version: c2a5759ae4b0303a8bf640d01a85ae3acc02455d
+  repo: https://github.com/mgutz/dat.git
   subpackages:
-  - sqlx-runner
   - common
-  - reflectx
   - kvs
   - postgres
+  - reflectx
+  - sqlx-runner
 - name: gopkg.in/yaml.v2
   version: a83829b6f1293c91addabc89d0571c246397bbf4
-  repo: https://gopkg.in/yaml.v2
+  repo: https://github.com/go-yaml/yaml.git
 testImports: []

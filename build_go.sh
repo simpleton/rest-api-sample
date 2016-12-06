@@ -1,10 +1,10 @@
 ***REMOVED***
 
 export VTTOP=$(pwd***REMOVED***
-export VTROOT="${VTROOT:-${VTTOP/\/src\/github.com\/simpleton\/tinker-api/}}"
+export VTROOT="${VTROOT:-${VTTOP/\/src\/github.com\/simpleton\/rest-api-sample/}}"
 # VTTOP sanity check
-if [[ "$VTTOP" == "${VTTOP/\/src\/github.com\/simpleton\/tinker-api/}" ]]; then
-  echo "WARNING: VTTOP($VTTOP***REMOVED*** does not contain src/github.com/simpleton/tinker-api"
+if [[ "$VTTOP" == "${VTTOP/\/src\/github.com\/simpleton\/rest-api-sample/}" ]]; then
+  echo "WARNING: VTTOP($VTTOP***REMOVED*** does not contain src/github.com/simpleton/rest-api-sample"
 ***REMOVED***
 
 export GOTOP=$VTTOP
@@ -24,4 +24,4 @@ export GOPATH=$(prepend_path $GOPATH $VTROOT***REMOVED***
 
 export GOPATH="$PWD:$GOPATH"
 
-go build -o ./bin/tinker-api
+go build -o ./bin/rest-api-sample

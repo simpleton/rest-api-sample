@@ -7,7 +7,7 @@ import (
 	"gopkg.in/mgutz/dat.v1"
 	"gopkg.in/mgutz/dat.v1/sqlx-runner"
 	"time"
-	"github.com/simpleton/tinker-api/conf"
+	"github.com/simpleton/rest-api-sample/conf"
 	"fmt"
 	glog "github.com/labstack/gommon/log"
 ***REMOVED***

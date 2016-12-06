@@ -5,9 +5,9 @@ import (
 	"net/http"
 	"github.com/dgrijalva/jwt-go"
 	"time"
-	"github.com/simpleton/tinker-api/conf"
-	"github.com/simpleton/tinker-api/models"
-	"github.com/simpleton/tinker-api/db"
+	"github.com/simpleton/rest-api-sample/conf"
+	"github.com/simpleton/rest-api-sample/models"
+	"github.com/simpleton/rest-api-sample/db"
 ***REMOVED***
 
 type LoginHandler struct {

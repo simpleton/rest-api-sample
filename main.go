@@ -1,18 +1,16 @@
 package main
 
 import (
-	"github.com/facebookgo/grace/gracehttp"
 	"github.com/labstack/echo"
-	"github.com/labstack/echo/engine/standard"
 	"github.com/labstack/echo/middleware"
-	"github.com/simpleton/tinker-api/routers"
+	"github.com/simpleton/rest-api-sample/routers"
 	glog "github.com/labstack/gommon/log"
-	"github.com/simpleton/tinker-api/db"
+	"github.com/simpleton/rest-api-sample/db"
 ***REMOVED***
 
 func main(***REMOVED*** {
 	server := echo.New(***REMOVED***
-	server.Logger(***REMOVED***.SetLevel(glog.DEBUG***REMOVED***
+	server.Logger.SetLevel(glog.DEBUG***REMOVED***
 
 	server.Use(middleware.Logger(***REMOVED******REMOVED***
 	server.Use(middleware.Recover(***REMOVED******REMOVED***
@@ -23,18 +21,16 @@ func main(***REMOVED*** {
 	}***REMOVED******REMOVED***
 	
 	//Run the API
-	server.Logger(***REMOVED***.Debug("Init Router"***REMOVED***
+	server.Logger.Debug("Init Router"***REMOVED***
 	api := routers.NewAPIRouter(server***REMOVED***
 	api.Init(***REMOVED***
 
-	server.Logger(***REMOVED***.Debug("Init Database"***REMOVED***
+	server.Logger.Debug("Init Database"***REMOVED***
 	if err := db.InitDB(***REMOVED***; err != nil {
 		panic(err***REMOVED***
 	}
 	defer db.RawDB.Close(***REMOVED***
 
-	std := standard.New(":8300"***REMOVED***
-	std.SetHandler(server***REMOVED***
-	server.Logger(***REMOVED***.Debug("Start Running"***REMOVED***
-	gracehttp.Serve(std.Server***REMOVED***
+	server.Logger.Debug("Start Running"***REMOVED***
+	server.Logger.Fatal(server.Start(":8300"***REMOVED******REMOVED***
 }

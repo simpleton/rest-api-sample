@@ -22,6 +22,7 @@ import:
 - package: github.com/klauspost/crc32
 - package: github.com/valyala/bytebufferpool
 - package: gopkg.in/mgutz/dat.v1
+  repo: https://github.com/mgutz/dat.git
   subpackages:
   - sqlx-runner
 - package: github.com/mattes/migrate
@@ -42,3 +43,11 @@ import:
   - '...'
 - package: github.com/twinj/uuid
   version: ^0.10.0
+- package: golang.org/x/sys
+  repo: https://github.com/golang/sys.git
+  subpackages:
+  - 'unix'
+- package: golang.org/x/crypto
+  repo: https://github.com/golang/crypto
+- package: gopkg.in/yaml.v2
+  repo: https://github.com/go-yaml/yaml.git

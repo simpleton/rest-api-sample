@@ -3,8 +3,8 @@ package handlers
 import (
 	"github.com/labstack/echo"
 	"net/http"
-	"github.com/simpleton/tinker-api/models"
-	"github.com/simpleton/tinker-api/db"
+	"github.com/simpleton/rest-api-sample/models"
+	"github.com/simpleton/rest-api-sample/db"
 	"github.com/twinj/uuid"
 ***REMOVED***
 

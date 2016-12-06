@@ -1,9 +1,9 @@
 all: build
 
-build: tinker-api
+build: rest-api-sample
 
-# go build -o ./bin/tinker-api
-tinker-api:
+# go build -o ./bin/rest-api-sample
+rest-api-sample:
 	@bash build_go.sh
 
 clean:
@@ -11,10 +11,10 @@ clean:
 	go clean
 
 prepare:
-	glide install
+	proxychains4 glide install
 
 test:
 	$(info ************ NO TEST CURRENTLY ***************REMOVED***
 
-run: tinker-api
-	./bin/tinker-api
+run: rest-api-sample
+	./bin/rest-api-sample
