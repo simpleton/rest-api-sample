@@ -1,5 +1,5 @@
-# tinker-api
-RESTful api for  tinker web
+# rest-api-sample
+A RESTful api project wirrten by golang(echo***REMOVED***.
 
 
 ## How To Develop
@@ -8,8 +8,8 @@ RESTful api for  tinker web
 
 ```
 1. Install latest Go and Glide
-2. git clone https://github.com/simpleton/tinker-api.git src/github.com/simpleton/tinker-api
-3. cd src/github.com/simpleton/tinker-api
+2. git clone https://github.com/simpleton/rest-api-sample.git src/github.com/simpleton/rest-api-sample
+3. cd src/github.com/simpleton/rest-api-sample
 4. make prepare
 5. make
 ```
